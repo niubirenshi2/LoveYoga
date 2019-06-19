@@ -3,174 +3,189 @@ package org.team3.loveyoga.pojo;
 import java.util.Date;
 
 public class Student {
-	  private Integer ysId;
+	  private Integer ys_id;
 
-	    private String ysName;
+	    private String ys_name;
 
-	    private String ysPwd;
+	    private String ys_pwd;
 
-	    private String ysQq;
+	    private String ys_qq;
 
-	    private String ysTel;
+	    private String ys_tel;
 
-	    private String ysNickname;
+	    private String ys_nickname;
 
-	    private String ysHeadimg;
+	    private String ys_headimg;
 
-	    private String ysEmail;
+	    private String ys_email;
 
-	    private String ysAddress;
+	    private String ys_address;
 
-	    private Long ysBalance;
+	    private Long ys_balance;
 
-	    private Date ysCreatetime;
+	    private Date ys_createtime;
 
-	    private Date ysUpdatetime;
+	    private Date ys_updatetime;
 
-	    private Integer ysState;
+	    private Integer ys_state;
 
-	    private Integer ysUid;
+	    private Integer ys_uid;
 
-	    private Integer yvVid;
+	    private Integer yv_vid;
 
-	    private Integer ycCid;
+	    private Integer yc_cid;
 
-	    private Integer ysNote;
+	    private Integer ys_note;
 
-	    public Integer getYsId() {
-	        return ysId;
-	    }
+		public Integer getYs_id() {
+			return ys_id;
+		}
 
-	    public void setYsId(Integer ysId) {
-	        this.ysId = ysId;
-	    }
+		public void setYs_id(Integer ys_id) {
+			this.ys_id = ys_id;
+		}
 
-	    public String getYsName() {
-	        return ysName;
-	    }
+		public String getYs_name() {
+			return ys_name;
+		}
 
-	    public void setYsName(String ysName) {
-	        this.ysName = ysName;
-	    }
+		public void setYs_name(String ys_name) {
+			this.ys_name = ys_name;
+		}
 
-	    public String getYsPwd() {
-	        return ysPwd;
-	    }
+		public String getYs_pwd() {
+			return ys_pwd;
+		}
 
-	    public void setYsPwd(String ysPwd) {
-	        this.ysPwd = ysPwd;
-	    }
+		public void setYs_pwd(String ys_pwd) {
+			this.ys_pwd = ys_pwd;
+		}
 
-	    public String getYsQq() {
-	        return ysQq;
-	    }
+		public String getYs_qq() {
+			return ys_qq;
+		}
 
-	    public void setYsQq(String ysQq) {
-	        this.ysQq = ysQq;
-	    }
+		public void setYs_qq(String ys_qq) {
+			this.ys_qq = ys_qq;
+		}
 
-	    public String getYsTel() {
-	        return ysTel;
-	    }
+		public String getYs_tel() {
+			return ys_tel;
+		}
 
-	    public void setYsTel(String ysTel) {
-	        this.ysTel = ysTel;
-	    }
+		public void setYs_tel(String ys_tel) {
+			this.ys_tel = ys_tel;
+		}
 
-	    public String getYsNickname() {
-	        return ysNickname;
-	    }
+		public String getYs_nickname() {
+			return ys_nickname;
+		}
 
-	    public void setYsNickname(String ysNickname) {
-	        this.ysNickname = ysNickname;
-	    }
+		public void setYs_nickname(String ys_nickname) {
+			this.ys_nickname = ys_nickname;
+		}
 
-	    public String getYsHeadimg() {
-	        return ysHeadimg;
-	    }
+		public String getYs_headimg() {
+			return ys_headimg;
+		}
 
-	    public void setYsHeadimg(String ysHeadimg) {
-	        this.ysHeadimg = ysHeadimg;
-	    }
+		public void setYs_headimg(String ys_headimg) {
+			this.ys_headimg = ys_headimg;
+		}
 
-	    public String getYsEmail() {
-	        return ysEmail;
-	    }
+		public String getYs_email() {
+			return ys_email;
+		}
 
-	    public void setYsEmail(String ysEmail) {
-	        this.ysEmail = ysEmail;
-	    }
+		public void setYs_email(String ys_email) {
+			this.ys_email = ys_email;
+		}
 
-	    public String getYsAddress() {
-	        return ysAddress;
-	    }
+		public String getYs_address() {
+			return ys_address;
+		}
 
-	    public void setYsAddress(String ysAddress) {
-	        this.ysAddress = ysAddress;
-	    }
+		public void setYs_address(String ys_address) {
+			this.ys_address = ys_address;
+		}
 
-	    public Long getYsBalance() {
-	        return ysBalance;
-	    }
+		public Long getYs_balance() {
+			return ys_balance;
+		}
 
-	    public void setYsBalance(Long ysBalance) {
-	        this.ysBalance = ysBalance;
-	    }
+		public void setYs_balance(Long ys_balance) {
+			this.ys_balance = ys_balance;
+		}
 
-	    public Date getYsCreatetime() {
-	        return ysCreatetime;
-	    }
+		public Date getYs_createtime() {
+			return ys_createtime;
+		}
 
-	    public void setYsCreatetime(Date ysCreatetime) {
-	        this.ysCreatetime = ysCreatetime;
-	    }
+		public void setYs_createtime(Date ys_createtime) {
+			this.ys_createtime = ys_createtime;
+		}
 
-	    public Date getYsUpdatetime() {
-	        return ysUpdatetime;
-	    }
+		public Date getYs_updatetime() {
+			return ys_updatetime;
+		}
 
-	    public void setYsUpdatetime(Date ysUpdatetime) {
-	        this.ysUpdatetime = ysUpdatetime;
-	    }
+		public void setYs_updatetime(Date ys_updatetime) {
+			this.ys_updatetime = ys_updatetime;
+		}
 
-	    public Integer getYsState() {
-	        return ysState;
-	    }
+		public Integer getYs_state() {
+			return ys_state;
+		}
 
-	    public void setYsState(Integer ysState) {
-	        this.ysState = ysState;
-	    }
+		public void setYs_state(Integer ys_state) {
+			this.ys_state = ys_state;
+		}
 
-	    public Integer getYsUid() {
-	        return ysUid;
-	    }
+		public Integer getYs_uid() {
+			return ys_uid;
+		}
 
-	    public void setYsUid(Integer ysUid) {
-	        this.ysUid = ysUid;
-	    }
+		public void setYs_uid(Integer ys_uid) {
+			this.ys_uid = ys_uid;
+		}
 
-	    public Integer getYvVid() {
-	        return yvVid;
-	    }
+		public Integer getYv_vid() {
+			return yv_vid;
+		}
 
-	    public void setYvVid(Integer yvVid) {
-	        this.yvVid = yvVid;
-	    }
+		public void setYv_vid(Integer yv_vid) {
+			this.yv_vid = yv_vid;
+		}
 
-	    public Integer getYcCid() {
-	        return ycCid;
-	    }
+		public Integer getYc_cid() {
+			return yc_cid;
+		}
 
-	    public void setYcCid(Integer ycCid) {
-	        this.ycCid = ycCid;
-	    }
+		public void setYc_cid(Integer yc_cid) {
+			this.yc_cid = yc_cid;
+		}
 
-	    public Integer getYsNote() {
-	        return ysNote;
-	    }
+		public Integer getYs_note() {
+			return ys_note;
+		}
 
-	    public void setYsNote(Integer ysNote) {
-	        this.ysNote = ysNote;
-	    }
+		public void setYs_note(Integer ys_note) {
+			this.ys_note = ys_note;
+		}
+
+		@Override
+		public String toString() {
+			return "Student [ys_id=" + ys_id + ", ys_name=" + ys_name + ", ys_pwd=" + ys_pwd + ", ys_qq=" + ys_qq
+					+ ", ys_tel=" + ys_tel + ", ys_nickname=" + ys_nickname + ", ys_headimg=" + ys_headimg
+					+ ", ys_email=" + ys_email + ", ys_address=" + ys_address + ", ys_balance=" + ys_balance
+					+ ", ys_createtime=" + ys_createtime + ", ys_updatetime=" + ys_updatetime + ", ys_state=" + ys_state
+					+ ", ys_uid=" + ys_uid + ", yv_vid=" + yv_vid + ", yc_cid=" + yc_cid + ", ys_note=" + ys_note + "]";
+		}
+
+	  
+
+		
+	    
+	    
 
 }

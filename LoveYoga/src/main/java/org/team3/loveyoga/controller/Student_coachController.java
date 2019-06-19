@@ -25,13 +25,13 @@ public class Student_coachController {
 		this.student_coachService = student_coachService;
 	}
 	
-	@RequestMapping("/my")
-	public List<Student> myStudent(Integer cid){
+	@RequestMapping("/myStudent")
+	@ResponseBody
+	public List<Student> myStudent(){
 		//需要提供我的cid
-		System.out.println("已经进入");
-		
-		return student_coachService.myStudents(cid);
+		Integer cid=2001;
+		List<Student> list=student_coachService.myStudents(cid);
+		return list;
 	}
-	
 	
 }
