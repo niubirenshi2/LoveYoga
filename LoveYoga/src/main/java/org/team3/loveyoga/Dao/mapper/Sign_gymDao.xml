@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.team3.loveyoga.Dao.Sign_gymDao">
+  <resultMap id="BaseResultMap" type="org.team3.loveyoga.pojo.Sign_gym">
+    <result column="ysg_id" jdbcType="INTEGER" property="ysgId" />
+    <result column="ysg_cid" jdbcType="INTEGER" property="ysgCid" />
+    <result column="ysg_flag" jdbcType="INTEGER" property="ysgFlag" />
+  </resultMap>
+  <insert id="insert" parameterType="org.team3.loveyoga.pojo.Sign_gym">
+    insert into y_sign_gym (ysg_id, ysg_cid, ysg_flag
+      )
+    values (#{ysgId,jdbcType=INTEGER}, #{ysgCid,jdbcType=INTEGER}, #{ysgFlag,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.team3.loveyoga.pojo.Sign_gym">
+    insert into y_sign_gym
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ysgId != null">
+        ysg_id,
+      </if>
+      <if test="ysgCid != null">
+        ysg_cid,
+      </if>
+      <if test="ysgFlag != null">
+        ysg_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ysgId != null">
+        #{ysgId,jdbcType=INTEGER},
+      </if>
+      <if test="ysgCid != null">
+        #{ysgCid,jdbcType=INTEGER},
+      </if>
+      <if test="ysgFlag != null">
+        #{ysgFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

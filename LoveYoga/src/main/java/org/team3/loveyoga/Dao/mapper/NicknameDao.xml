@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.team3.loveyoga.Dao.NicknameDao">
+  <resultMap id="BaseResultMap" type="org.team3.loveyoga.pojo.Nickname">
+    <result column="yn_nicknameId" jdbcType="INTEGER" property="ynNicknameid" />
+    <result column="yn_nickname" jdbcType="VARCHAR" property="ynNickname" />
+    <result column="yn_flag" jdbcType="INTEGER" property="ynFlag" />
+  </resultMap>
+  <insert id="insert" parameterType="org.team3.loveyoga.pojo.Nickname">
+    insert into y_nickname (yn_nicknameId, yn_nickname, yn_flag
+      )
+    values (#{ynNicknameid,jdbcType=INTEGER}, #{ynNickname,jdbcType=VARCHAR}, #{ynFlag,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.team3.loveyoga.pojo.Nickname">
+    insert into y_nickname
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ynNicknameid != null">
+        yn_nicknameId,
+      </if>
+      <if test="ynNickname != null">
+        yn_nickname,
+      </if>
+      <if test="ynFlag != null">
+        yn_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ynNicknameid != null">
+        #{ynNicknameid,jdbcType=INTEGER},
+      </if>
+      <if test="ynNickname != null">
+        #{ynNickname,jdbcType=VARCHAR},
+      </if>
+      <if test="ynFlag != null">
+        #{ynFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

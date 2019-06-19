@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.team3.loveyoga.Dao.HeadImgDao">
+  <resultMap id="BaseResultMap" type="org.team3.loveyoga.pojo.HeadImg">
+    <result column="yh_headImgId" jdbcType="INTEGER" property="yhHeadimgid" />
+    <result column="yh_headImg" jdbcType="VARCHAR" property="yhHeadimg" />
+    <result column="yh_flag" jdbcType="INTEGER" property="yhFlag" />
+  </resultMap>
+  <insert id="insert" parameterType="org.team3.loveyoga.pojo.HeadImg">
+    insert into y_headimg (yh_headImgId, yh_headImg, yh_flag
+      )
+    values (#{yhHeadimgid,jdbcType=INTEGER}, #{yhHeadimg,jdbcType=VARCHAR}, #{yhFlag,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.team3.loveyoga.pojo.HeadImg">
+    insert into y_headimg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="yhHeadimgid != null">
+        yh_headImgId,
+      </if>
+      <if test="yhHeadimg != null">
+        yh_headImg,
+      </if>
+      <if test="yhFlag != null">
+        yh_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="yhHeadimgid != null">
+        #{yhHeadimgid,jdbcType=INTEGER},
+      </if>
+      <if test="yhHeadimg != null">
+        #{yhHeadimg,jdbcType=VARCHAR},
+      </if>
+      <if test="yhFlag != null">
+        #{yhFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.team3.loveyoga.Dao.Consume_logDao">
+  <resultMap id="BaseResultMap" type="org.team3.loveyoga.pojo.Consume_logImg">
+    <result column="ycl_id" jdbcType="INTEGER" property="yclId" />
+    <result column="ycl_sid" jdbcType="INTEGER" property="yclSid" />
+    <result column="ycl_chargemoney" jdbcType="DECIMAL" property="yclChargemoney" />
+    <result column="ycl_createtime" jdbcType="TIMESTAMP" property="yclCreatetime" />
+    <result column="ycl_tradenumber" jdbcType="CHAR" property="yclTradenumber" />
+  </resultMap>
+  <insert id="insert" parameterType="org.team3.loveyoga.pojo.Consume_logImg">
+    insert into y_consume_log (ycl_id, ycl_sid, ycl_chargemoney, 
+      ycl_createtime, ycl_tradenumber)
+    values (#{yclId,jdbcType=INTEGER}, #{yclSid,jdbcType=INTEGER}, #{yclChargemoney,jdbcType=DECIMAL}, 
+      #{yclCreatetime,jdbcType=TIMESTAMP}, #{yclTradenumber,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="org.team3.loveyoga.pojo.Consume_logImg">
+    insert into y_consume_log
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="yclId != null">
+        ycl_id,
+      </if>
+      <if test="yclSid != null">
+        ycl_sid,
+      </if>
+      <if test="yclChargemoney != null">
+        ycl_chargemoney,
+      </if>
+      <if test="yclCreatetime != null">
+        ycl_createtime,
+      </if>
+      <if test="yclTradenumber != null">
+        ycl_tradenumber,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="yclId != null">
+        #{yclId,jdbcType=INTEGER},
+      </if>
+      <if test="yclSid != null">
+        #{yclSid,jdbcType=INTEGER},
+      </if>
+      <if test="yclChargemoney != null">
+        #{yclChargemoney,jdbcType=DECIMAL},
+      </if>
+      <if test="yclCreatetime != null">
+        #{yclCreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="yclTradenumber != null">
+        #{yclTradenumber,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

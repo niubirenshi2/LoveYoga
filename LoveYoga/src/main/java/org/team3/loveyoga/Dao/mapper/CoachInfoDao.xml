@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.team3.loveyoga.Dao.CoachInfoDao">
+  <resultMap id="BaseResultMap" type="org.team3.loveyoga.pojo.CoachInfo">
+    <result column="yc_id" jdbcType="INTEGER" property="ycId" />
+    <result column="yc_authority" jdbcType="INTEGER" property="ycAuthority" />
+    <result column="yc_headImgId" jdbcType="INTEGER" property="ycHeadimgid" />
+    <result column="yc_nicknameId" jdbcType="INTEGER" property="ycNicknameid" />
+    <result column="yc_address" jdbcType="VARCHAR" property="ycAddress" />
+    <result column="yc_price" jdbcType="DECIMAL" property="ycPrice" />
+    <result column="yc_freetime" jdbcType="INTEGER" property="ycFreetime" />
+    <result column="yc_acceptState" jdbcType="INTEGER" property="ycAcceptstate" />
+    <result column="yc_genre" jdbcType="VARCHAR" property="ycGenre" />
+    <result column="yc_telvisible" jdbcType="INTEGER" property="ycTelvisible" />
+    <result column="yc_telphone" jdbcType="CHAR" property="ycTelphone" />
+    <result column="yc_courseState" jdbcType="INTEGER" property="ycCoursestate" />
+    <result column="yc_persoalTrainer" jdbcType="INTEGER" property="ycPersoaltrainer" />
+    <result column="yc_expectedSalary" jdbcType="DECIMAL" property="ycExpectedsalary" />
+    <result column="yc_qq" jdbcType="VARCHAR" property="ycQq" />
+    <result column="yc_weichat" jdbcType="VARCHAR" property="ycWeichat" />
+    <result column="yc_flag" jdbcType="INTEGER" property="ycFlag" />
+  </resultMap>
+  <insert id="insert" parameterType="org.team3.loveyoga.pojo.CoachInfo">
+    insert into y_coach (yc_id, yc_authority, yc_headImgId, 
+      yc_nicknameId, yc_address, yc_price, 
+      yc_freetime, yc_acceptState, yc_genre, 
+      yc_telvisible, yc_telphone, yc_courseState, 
+      yc_persoalTrainer, yc_expectedSalary, yc_qq, 
+      yc_weichat, yc_flag)
+    values (#{ycId,jdbcType=INTEGER}, #{ycAuthority,jdbcType=INTEGER}, #{ycHeadimgid,jdbcType=INTEGER}, 
+      #{ycNicknameid,jdbcType=INTEGER}, #{ycAddress,jdbcType=VARCHAR}, #{ycPrice,jdbcType=DECIMAL}, 
+      #{ycFreetime,jdbcType=INTEGER}, #{ycAcceptstate,jdbcType=INTEGER}, #{ycGenre,jdbcType=VARCHAR}, 
+      #{ycTelvisible,jdbcType=INTEGER}, #{ycTelphone,jdbcType=CHAR}, #{ycCoursestate,jdbcType=INTEGER}, 
+      #{ycPersoaltrainer,jdbcType=INTEGER}, #{ycExpectedsalary,jdbcType=DECIMAL}, #{ycQq,jdbcType=VARCHAR}, 
+      #{ycWeichat,jdbcType=VARCHAR}, #{ycFlag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.team3.loveyoga.pojo.CoachInfo">
+    insert into y_coach
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ycId != null">
+        yc_id,
+      </if>
+      <if test="ycAuthority != null">
+        yc_authority,
+      </if>
+      <if test="ycHeadimgid != null">
+        yc_headImgId,
+      </if>
+      <if test="ycNicknameid != null">
+        yc_nicknameId,
+      </if>
+      <if test="ycAddress != null">
+        yc_address,
+      </if>
+      <if test="ycPrice != null">
+        yc_price,
+      </if>
+      <if test="ycFreetime != null">
+        yc_freetime,
+      </if>
+      <if test="ycAcceptstate != null">
+        yc_acceptState,
+      </if>
+      <if test="ycGenre != null">
+        yc_genre,
+      </if>
+      <if test="ycTelvisible != null">
+        yc_telvisible,
+      </if>
+      <if test="ycTelphone != null">
+        yc_telphone,
+      </if>
+      <if test="ycCoursestate != null">
+        yc_courseState,
+      </if>
+      <if test="ycPersoaltrainer != null">
+        yc_persoalTrainer,
+      </if>
+      <if test="ycExpectedsalary != null">
+        yc_expectedSalary,
+      </if>
+      <if test="ycQq != null">
+        yc_qq,
+      </if>
+      <if test="ycWeichat != null">
+        yc_weichat,
+      </if>
+      <if test="ycFlag != null">
+        yc_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ycId != null">
+        #{ycId,jdbcType=INTEGER},
+      </if>
+      <if test="ycAuthority != null">
+        #{ycAuthority,jdbcType=INTEGER},
+      </if>
+      <if test="ycHeadimgid != null">
+        #{ycHeadimgid,jdbcType=INTEGER},
+      </if>
+      <if test="ycNicknameid != null">
+        #{ycNicknameid,jdbcType=INTEGER},
+      </if>
+      <if test="ycAddress != null">
+        #{ycAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="ycPrice != null">
+        #{ycPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="ycFreetime != null">
+        #{ycFreetime,jdbcType=INTEGER},
+      </if>
+      <if test="ycAcceptstate != null">
+        #{ycAcceptstate,jdbcType=INTEGER},
+      </if>
+      <if test="ycGenre != null">
+        #{ycGenre,jdbcType=VARCHAR},
+      </if>
+      <if test="ycTelvisible != null">
+        #{ycTelvisible,jdbcType=INTEGER},
+      </if>
+      <if test="ycTelphone != null">
+        #{ycTelphone,jdbcType=CHAR},
+      </if>
+      <if test="ycCoursestate != null">
+        #{ycCoursestate,jdbcType=INTEGER},
+      </if>
+      <if test="ycPersoaltrainer != null">
+        #{ycPersoaltrainer,jdbcType=INTEGER},
+      </if>
+      <if test="ycExpectedsalary != null">
+        #{ycExpectedsalary,jdbcType=DECIMAL},
+      </if>
+      <if test="ycQq != null">
+        #{ycQq,jdbcType=VARCHAR},
+      </if>
+      <if test="ycWeichat != null">
+        #{ycWeichat,jdbcType=VARCHAR},
+      </if>
+      <if test="ycFlag != null">
+        #{ycFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

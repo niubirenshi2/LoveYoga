@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.team3.loveyoga.Dao.WalletDao">
+  <resultMap id="BaseResultMap" type="org.team3.loveyoga.pojo.Wallet">
+    <result column="yw_id" jdbcType="INTEGER" property="ywId" />
+    <result column="yw_cardid" jdbcType="INTEGER" property="ywCardid" />
+    <result column="yw_balance" jdbcType="DECIMAL" property="ywBalance" />
+    <result column="yw_flag" jdbcType="INTEGER" property="ywFlag" />
+  </resultMap>
+  <insert id="insert" parameterType="org.team3.loveyoga.pojo.Wallet">
+    insert into y_wallet (yw_id, yw_cardid, yw_balance, 
+      yw_flag)
+    values (#{ywId,jdbcType=INTEGER}, #{ywCardid,jdbcType=INTEGER}, #{ywBalance,jdbcType=DECIMAL}, 
+      #{ywFlag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.team3.loveyoga.pojo.Wallet">
+    insert into y_wallet
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ywId != null">
+        yw_id,
+      </if>
+      <if test="ywCardid != null">
+        yw_cardid,
+      </if>
+      <if test="ywBalance != null">
+        yw_balance,
+      </if>
+      <if test="ywFlag != null">
+        yw_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ywId != null">
+        #{ywId,jdbcType=INTEGER},
+      </if>
+      <if test="ywCardid != null">
+        #{ywCardid,jdbcType=INTEGER},
+      </if>
+      <if test="ywBalance != null">
+        #{ywBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="ywFlag != null">
+        #{ywFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

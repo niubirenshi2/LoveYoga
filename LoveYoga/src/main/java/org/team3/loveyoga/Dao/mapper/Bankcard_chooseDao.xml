@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.team3.loveyoga.Dao.Bankcard_chooseDao">
+  <resultMap id="BaseResultMap" type="org.team3.loveyoga.pojo.Bankcard_choose">
+    <result column="ybc_id" jdbcType="INTEGER" property="ybcId" />
+    <result column="ybc_yuid" jdbcType="INTEGER" property="ybcYuid" />
+    <result column="ybc_cardnumber" jdbcType="VARCHAR" property="ybcCardnumber" />
+    <result column="ybc_balance" jdbcType="DECIMAL" property="ybcBalance" />
+    <result column="ybc_flag" jdbcType="INTEGER" property="ybcFlag" />
+  </resultMap>
+  <insert id="insert" parameterType="org.team3.loveyoga.pojo.Bankcard_choose">
+    insert into y_bankcard_choose (ybc_id, ybc_yuid, ybc_cardnumber, 
+      ybc_balance, ybc_flag)
+    values (#{ybcId,jdbcType=INTEGER}, #{ybcYuid,jdbcType=INTEGER}, #{ybcCardnumber,jdbcType=VARCHAR}, 
+      #{ybcBalance,jdbcType=DECIMAL}, #{ybcFlag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.team3.loveyoga.pojo.Bankcard_choose">
+    insert into y_bankcard_choose
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="ybcId != null">
+        ybc_id,
+      </if>
+      <if test="ybcYuid != null">
+        ybc_yuid,
+      </if>
+      <if test="ybcCardnumber != null">
+        ybc_cardnumber,
+      </if>
+      <if test="ybcBalance != null">
+        ybc_balance,
+      </if>
+      <if test="ybcFlag != null">
+        ybc_flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="ybcId != null">
+        #{ybcId,jdbcType=INTEGER},
+      </if>
+      <if test="ybcYuid != null">
+        #{ybcYuid,jdbcType=INTEGER},
+      </if>
+      <if test="ybcCardnumber != null">
+        #{ybcCardnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="ybcBalance != null">
+        #{ybcBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="ybcFlag != null">
+        #{ybcFlag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
