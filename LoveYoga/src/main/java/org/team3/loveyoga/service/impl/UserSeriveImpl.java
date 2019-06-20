@@ -25,15 +25,41 @@ public class UserSeriveImpl implements UserService {
 		this.userDao = userDao;
 	}
 
+	//学员手机号注册
 	@Override
-	public void addUser(User user) {
-		userDao.addUser(user);
+	public void addUserByTel(User user) {
+		userDao.addUserByTel(user);
 	}
 
+	/*//通过手机查密码（登录）
 	@Override
 	public String findPasswordByTel(String yu_tel) {
 		// TODO Auto-generated method stub
 		return userDao.findPasswordByTel(yu_tel);
+	}*/
+	//学员用户名注册
+	@Override
+	public void addUserByName(User user) {
+		userDao.addUserByName(user);
+		
+	}
+	/*//通过用户名查密码（登录）
+	@Override
+	public String findPasswordByName(String yu_name) {
+		// TODO Auto-generated method stub
+		return userDao.findPasswordByName(yu_name);
+	}*/
+
+	@Override
+	public int findIdByName(String yu_name) {
+		// TODO Auto-generated method stub
+		return userDao.findIdByName(yu_name);
+	}
+
+	@Override
+	public int findIdByTel(String yu_tel) {
+		// TODO Auto-generated method stub
+		return userDao.findIdByTel(yu_tel);
 	}
 
 	
