@@ -31,4 +31,10 @@ public class StudentServiceImpl implements StudentService {
 		studentDao.addStudent(student);
 	}
 
+	@Override
+	public Student findStudentByTel(String ys_tel) {
+		// TODO Auto-generated method stub
+		return studentDao.findStudentByTel(ys_tel);
+	}
+
 }

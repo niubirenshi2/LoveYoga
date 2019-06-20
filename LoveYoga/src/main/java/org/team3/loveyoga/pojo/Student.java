@@ -18,8 +18,6 @@ public class Student{
 	private Date ys_updatetime;
 	private Integer ys_state;
 	private Integer ys_uid;
-	private Integer yv_vid;
-	private Integer yc_cid;
 	private String ys_note;
 	public Integer getYs_id() {
 		return ys_id;
@@ -105,31 +103,21 @@ public class Student{
 	public void setYs_uid(Integer ys_uid) {
 		this.ys_uid = ys_uid;
 	}
-	public Integer getYv_vid() {
-		return yv_vid;
-	}
-	public void setYv_vid(Integer yv_vid) {
-		this.yv_vid = yv_vid;
-	}
-	public Integer getYc_cid() {
-		return yc_cid;
-	}
-	public void setYc_cid(Integer yc_cid) {
-		this.yc_cid = yc_cid;
-	}
+	
 	public String getYs_note() {
 		return ys_note;
 	}
 	public void setYs_note(String ys_note) {
 		this.ys_note = ys_note;
 	}
+	
 	@Override
 	public String toString() {
 		return "Student [ys_id=" + ys_id + ", ys_name=" + ys_name + ", ys_pwd=" + ys_pwd + ", ys_qq=" + ys_qq
 				+ ", ys_tel=" + ys_tel + ", ys_nickname=" + ys_nickname + ", ys_headimg=" + ys_headimg + ", ys_email="
 				+ ys_email + ", ys_address=" + ys_address + ", ys_balance=" + ys_balance + ", ys_createtime="
 				+ ys_createtime + ", ys_updatetime=" + ys_updatetime + ", ys_state=" + ys_state + ", ys_uid=" + ys_uid
-				+ ", yv_vid=" + yv_vid + ", yc_cid=" + yc_cid + ", ys_note=" + ys_note + "]";
+				+ ", ys_note=" + ys_note + "]";
 	}
 	public Student(Integer ys_id, String ys_name, String ys_pwd, String ys_qq, String ys_tel, String ys_nickname,
 			String ys_headimg, String ys_email, String ys_address, BigDecimal ys_balance, Date ys_createtime,
@@ -149,8 +137,6 @@ public class Student{
 		this.ys_updatetime = ys_updatetime;
 		this.ys_state = ys_state;
 		this.ys_uid = ys_uid;
-		this.yv_vid = yv_vid;
-		this.yc_cid = yc_cid;
 		this.ys_note = ys_note;
 	}
 	public Student() {

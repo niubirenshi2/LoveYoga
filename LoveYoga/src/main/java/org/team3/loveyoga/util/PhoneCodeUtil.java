@@ -4,6 +4,18 @@ import java.util.Random;
 
 /**
  * 验证码的工具类，用来生成和发送验证码，依赖SMSUtil
+ * 
+ * maven依赖:
+ * <dependency>
+	    <groupId>com.aliyun</groupId>
+	    <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+	    <version>1.1.0</version>
+	</dependency>
+	<dependency>
+	    <groupId>com.aliyun</groupId>
+	    <artifactId>aliyun-java-sdk-core</artifactId>
+	    <version>4.1.1</version>
+	</dependency>
  */
 public class PhoneCodeUtil {
     private static Random random = new Random(17);// 随机数生成类，用来生成随机验证码
@@ -22,6 +34,14 @@ public class PhoneCodeUtil {
         SMSUtil.sendSms(phoneNumber, stringBuilder.toString());
         return stringBuilder.toString();
     }
-
-
+    //测试
+    public static void main(String[] args) {
+    	//手机号
+		String phoneNumber = "13568307170";
+		//生成验证码
+		String code = PhoneCodeUtil.sendPhoneCode(phoneNumber);
+		//发送短信
+		SMSUtil.sendSms(phoneNumber, code);
+		System.out.println(code);
+	}
 }
