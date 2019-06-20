@@ -9,6 +9,7 @@ import org.team3.loveyoga.pojo.CoachInfo;
 import org.team3.loveyoga.service.CoachInfoService;
 
 @Controller
+@RequestMapping(value = "/coachInfo")
 public class CoachInfoController {
 
 	@Autowired
@@ -17,9 +18,12 @@ public class CoachInfoController {
 	@RequestMapping(value = "/register")
 	@ResponseBody
 	public boolean  register(@RequestBody CoachInfo coachInfo) {
+		
+		System.out.println("开始提交信息！"+coachInfo);
 		boolean result = false;
-		result = coachInfoService.addInfo(coachInfo);
+//		result = coachInfoService.addInfo(coachInfo);
 		return result;
 				
 	}
+	
 }

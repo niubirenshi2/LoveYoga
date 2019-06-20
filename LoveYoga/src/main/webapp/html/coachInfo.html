@@ -10,64 +10,86 @@
   <div class="layui-form-item">
     <label class="layui-form-label">权限设置</label>
     <div class="layui-input-block">
-      <input type="radio" name="yc_authority" value="私密" title="私密">
-      <input type="radio" name="yc_authority" value="好友可见" title="好友可见" checked>
-      <input type="radio" name="yc_authority" value="全部可见" title="全部可见" checked>
+      <input type="radio" name="yc_authority" value="0" title="私密">
+      <input type="radio" name="yc_authority" value="1" title="好友可见" >
+      <input type="radio" name="yc_authority" value="2" title="全部可见" checked>
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">昵称</label>
-    <div class="layui-input-block">
-      <input type="text" name="yc_nickname" required  lay-verify="required" placeholder="请输入昵称" autocomplete="off" class="layui-input">
+    <div class="layui-input-block" style="width: 120px;">
+      <input type="text" name="yc_nicknameid" required  lay-verify="required" placeholder="请输入昵称" autocomplete="off" class="layui-input">
     </div>
   </div> 
   <div class="layui-form-item">
     <label class="layui-form-label">课时费</label>
-    <div class="layui-input-block">
+    <div class="layui-input-block" style="width: 150px;">
       <input type="text" name="yc_price" required  lay-verify="required" placeholder="请设置你的课时费" autocomplete="off" class="layui-input">
     </div>
   </div> 
   <div class="layui-form-item">
     <label class="layui-form-label">空闲时间</label>
     <div class="layui-input-block">
-      <input type="radio" name="yc_freetime" value="上午有空 " title="上午有空">
-      <input type="radio" name="yc_freetime" value="下午有空" title="下午有空" checked>
-      <input type="radio" name="yc_freetime" value="全天有空" title="全天有空" checked>
+      <input type="radio" name="yc_freetime" value="0 " title="上午有空">
+      <input type="radio" name="yc_freetime" value="1" title="下午有空" >
+      <input type="radio" name="yc_freetime" value="2" title="全天有空" checked>
     </div>
   </div>
 
   <div class="layui-form-item">
     <label class="layui-form-label">是否接课</label>
     <div class="layui-input-block">
-      <input type="radio" name="yc_acceptState" value="接课 " title="接课">
-      <input type="radio" name="yc_acceptState" value="不接课" title="不接课" checked>
-    </div>
-  </div>
-  <div class="layui-form-item">
-    <div class="layui-input-block">
-      <button class="layui-btn" lay-submit lay-filter="formDemo" type="button">立即提交</button>
-      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+      <input type="radio" name="yc_acceptstate" value="0 " title="接课">
+      <input type="radio" name="yc_acceptstate" value="1" title="不接课" checked>
     </div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">流派</label>
-    <div class="layui-input-block">
-      <input type="text" name="yc_nickname" required  lay-verify="required" placeholder="请输入流派" autocomplete="off" class="layui-input">
+    <div class="layui-input-block" style="width: 120px;">
+      <input type="text" name="yc_genre" required  lay-verify="required" placeholder="请输入流派" autocomplete="off" class="layui-input">
 	</div>
   </div>
   <div class="layui-form-item">
     <label class="layui-form-label">手机号码权限设置</label>
     <div class="layui-input-block">
-      <input type="radio" name="yc_acceptState" value="接课 " title="接课">
-      <input type="radio" name="yc_acceptState" value="不接课" title="不接课" checked>
+      <input type="radio" name="yc_telvisible" value="0" title="全部可见">
+      <input type="radio" name="yc_telvisible" value="1" title="好友可见">
+      <input type="radio" name="yc_telvisible" value="2" title="场馆和预约的人可见" checked>
     </div>
   </div>
   <div class="layui-form-item">
-    <label class="layui-form-label">请输入手机号码：</label>
-    <div class="layui-input-block">
+    <label class="layui-form-label" >请输入手机号码：</label>
+    <div class="layui-input-block" style="width: 200px;">
       <input type="text" name="yc_telphone" required  lay-verify="required"  autocomplete="off" class="layui-input">
  	</div>
   </div>  
+  <div class="layui-form-item">
+    <label class="layui-form-label">是否接受私教课程</label>
+    <div class="layui-input-block">
+      <input type="radio" name="yc_persoaltrainer" value="0" title="接受">
+      <input type="radio" name="yc_persoaltrainer" value="1" title="不接受" checked>
+    </div>
+  </div>
+  <div class="layui-form-item">
+    <label class="layui-form-label">期望薪资</label>
+    <div class="layui-input-block" style="width: 120px;">
+      <input type="text" name="yc_expectedsalary" required  lay-verify="required"  autocomplete="off" class="layui-input">
+ 	</div>
+  </div>  
+  <div class="layui-form-item">
+    <label class="layui-form-label">qq号码：</label>
+    <div class="layui-input-block" style="width: 120px;">
+      <input type="text" name="yc_qq" required  lay-verify="required"  autocomplete="off" class="layui-input">
+ 	</div>
+  </div>  
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="coachInfo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
 </form>
 </body>
+<script type="text/javascript" src="/assets/layui/layui.js"></script>
+<script type="text/javascript" src="/assets/js/coach/coachInfo.js"></script>
 </html>

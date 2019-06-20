@@ -7,9 +7,9 @@ public class CoachInfo {
 
 	private Integer yc_authority;
 
-	private Integer yc_headimgid;
+	private String  yc_headimgid;
 
-	private Integer yc_nicknameid;
+	private String yc_nicknameid;
 
 	private String yc_address;
 
@@ -55,19 +55,19 @@ public class CoachInfo {
 		this.yc_authority = yc_authority;
 	}
 
-	public Integer getYc_headimgid() {
+	public String getYc_headimgid() {
 		return yc_headimgid;
 	}
 
-	public void setYc_headimgid(Integer yc_headimgid) {
+	public void setYc_headimgid(String yc_headimgid) {
 		this.yc_headimgid = yc_headimgid;
 	}
 
-	public Integer getYc_nicknameid() {
+	public String getYc_nicknameid() {
 		return yc_nicknameid;
 	}
 
-	public void setYc_nicknameid(Integer yc_nicknameid) {
+	public void setYc_nicknameid(String yc_nicknameid) {
 		this.yc_nicknameid = yc_nicknameid;
 	}
 
@@ -193,6 +193,8 @@ public class CoachInfo {
 				+ yc_expectedsalary + ", yc_qq=" + yc_qq + ", yc_weichat=" + yc_weichat + ", yc_uid=" + yc_uid
 				+ ", yc_flag=" + yc_flag + "]";
 	}
+
+
 
 	
 
