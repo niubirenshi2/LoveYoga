@@ -34,6 +34,8 @@ public class CoachInfo {
 	private String yc_qq;
 
 	private String yc_weichat;
+	
+	private String yc_uid;
 
 	private Integer yc_flag;
 
@@ -165,6 +167,14 @@ public class CoachInfo {
 		this.yc_weichat = yc_weichat;
 	}
 
+	public String getYc_uid() {
+		return yc_uid;
+	}
+
+	public void setYc_uid(String yc_uid) {
+		this.yc_uid = yc_uid;
+	}
+
 	public Integer getYc_flag() {
 		return yc_flag;
 	}
@@ -180,7 +190,8 @@ public class CoachInfo {
 				+ ", yc_freetime=" + yc_freetime + ", yc_acceptstate=" + yc_acceptstate + ", yc_genre=" + yc_genre
 				+ ", yc_telvisible=" + yc_telvisible + ", yc_telphone=" + yc_telphone + ", yc_coursestate="
 				+ yc_coursestate + ", yc_persoaltrainer=" + yc_persoaltrainer + ", yc_expectedsalary="
-				+ yc_expectedsalary + ", yc_qq=" + yc_qq + ", yc_weichat=" + yc_weichat + ", yc_flag=" + yc_flag + "]";
+				+ yc_expectedsalary + ", yc_qq=" + yc_qq + ", yc_weichat=" + yc_weichat + ", yc_uid=" + yc_uid
+				+ ", yc_flag=" + yc_flag + "]";
 	}
 
 	
