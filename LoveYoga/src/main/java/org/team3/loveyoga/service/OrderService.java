@@ -8,6 +8,5 @@ import org.team3.loveyoga.pojo.Student;
 public interface OrderService {
 	
 	List<Order> myOrders(Integer yo_cid);
-	
 //	List<Student> selectStudentAll();
 }

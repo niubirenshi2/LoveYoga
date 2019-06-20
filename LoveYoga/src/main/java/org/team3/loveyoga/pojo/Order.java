@@ -23,17 +23,18 @@ public class Order {
 
     private String yo_comment;
     
-    private String studentName;
+    private Student student;
 
-    //加上一个学生的名字
-    public String getStudentName() {
-		return studentName;
+    //加上一个学生的信息
+    public Student getStudent() {
+		return student;
 	}
 
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
+	public void setStudent(Student student) {
+		this.student = student;
 	}
     
+	
 	public Integer getYo_id() {
 		return yo_id;
 	}
@@ -115,13 +116,12 @@ public class Order {
 		this.yo_comment = yo_comment;
 	}
 
-	@Override
-	public String toString() {
-		return "Order [yo_id=" + yo_id + ", yo_sid=" + yo_sid + ", yo_cid=" + yo_cid + ", yo_requesttime="
-				+ yo_requesttime + ", yo_ordernumber=" + yo_ordernumber + ", yo_paynumber=" + yo_paynumber
-				+ ", yo_createtime=" + yo_createtime + ", yo_state=" + yo_state + ", yo_paytime=" + yo_paytime
-				+ ", yo_comment=" + yo_comment + "]";
-	}
+	
+
+	
+	
+
+	
     
     
 

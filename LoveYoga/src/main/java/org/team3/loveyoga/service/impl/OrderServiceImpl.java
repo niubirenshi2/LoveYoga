@@ -27,7 +27,6 @@ public class OrderServiceImpl implements OrderService{
 	
 	@Override
 	public List<Order> myOrders(Integer cid) {
-		System.out.println("1111111111");
 		List<Order> list=orderDao.selectAllOrders(cid);
 		return list;
 	}
