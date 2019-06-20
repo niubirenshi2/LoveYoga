@@ -17,7 +17,7 @@ public class UserRealm extends AuthorizingRealm{
 		//先不管角色授权和权限授权！！！！！
 		
 		
-		
+		System.out.println("haozi测试提交");
 		/*System.out.println("正在授权...");
 		//获得账号
 		String account=(String) principals.getPrimaryPrincipal();
