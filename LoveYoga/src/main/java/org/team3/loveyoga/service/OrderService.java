@@ -9,5 +9,5 @@ public interface OrderService {
 	
 	List<Order> myOrders(Integer yo_cid);
 	
-	List<Student> selectStudentAll();
+//	List<Student> selectStudentAll();
 }

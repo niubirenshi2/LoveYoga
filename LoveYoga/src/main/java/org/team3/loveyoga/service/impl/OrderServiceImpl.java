@@ -32,10 +32,10 @@ public class OrderServiceImpl implements OrderService{
 		return list;
 	}
 
-	@Override
-	public List<Student> selectStudentAll() {
-		System.out.println("1111");
-		return orderDao.selectStudentsAll();
-	}
+//	@Override
+//	public List<Student> selectStudentAll() {
+//		System.out.println("1111");
+//		return orderDao.selectStudentsAll();
+//	}
 
 }

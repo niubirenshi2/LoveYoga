@@ -2,7 +2,7 @@ package org.team3.loveyoga.pojo;
 
 import java.util.Date;
 
-public class Consume_log {
+public class Withdrawmoney {
     private Integer ycl_id;
 
     private Integer ycl_sid;
@@ -80,7 +80,7 @@ public class Consume_log {
 				+ ycl_tradenumber + ", flag=" + flag + "]";
 	}
 
-	public Consume_log(Integer ycl_id, Integer ycl_sid, Long ycl_chargemoney, Date ycl_createtime, String cardnumber,
+	public Withdrawmoney(Integer ycl_id, Integer ycl_sid, Long ycl_chargemoney, Date ycl_createtime, String cardnumber,
 			String ycl_tradenumber, int flag) {
 		
 		this.ycl_id = ycl_id;
@@ -92,7 +92,7 @@ public class Consume_log {
 		this.flag = flag;
 	}
 
-	public Consume_log() {
+	public Withdrawmoney() {
 	
 	}
 

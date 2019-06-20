@@ -33,18 +33,18 @@ public class OrderController {
 	 */
 	@RequestMapping("/myOrders")
 	@ResponseBody
-	public Map<String,Object> myOrders(){
-		Map<String,Object> map=new HashMap<>();
+	public List<Order> myOrders(){
+		//Map<String,Object> map=new HashMap<>();
 		//根据存放的教练id查询出所有的签约信息
 		System.out.println("开始进入");
 		Integer cid=2001;
-		List<Order> orders=orderService.myOrders(2001);
+		List<Order> orders=orderService.myOrders(cid);
 		System.out.println(orders.size());
 		//所有的学生账号
-		List<Student> students=orderService.selectStudentAll();
-		map.put("orders", orders);
-		map.put("students", students);
-		return map;
+//		List<Student> students=orderService.selectStudentAll();
+//		map.put("orders", orders);
+//		map.put("students", students);
+		return orders;
 	}
 	
 }

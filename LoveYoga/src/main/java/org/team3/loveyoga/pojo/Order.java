@@ -23,10 +23,21 @@ public class Order {
 
     private String yo_comment;
     
+    private String studentName;
 
+    //加上一个学生的名字
+    public String getStudentName() {
+		return studentName;
+	}
+
+	public void setStudentName(String studentName) {
+		this.studentName = studentName;
+	}
+    
 	public Integer getYo_id() {
 		return yo_id;
 	}
+
 
 	public void setYo_id(Integer yo_id) {
 		this.yo_id = yo_id;

@@ -1,9 +1,9 @@
 package org.team3.loveyoga.Dao;
 
-import org.team3.loveyoga.pojo.Consume_log;
+import org.team3.loveyoga.pojo.Withdrawmoney;
 
 public interface Consume_logDao {
-    int insert(Consume_log record);
+    int insert(Withdrawmoney record);
 
-    int insertSelective(Consume_log record);
+    int insertSelective(Withdrawmoney record);
 }
