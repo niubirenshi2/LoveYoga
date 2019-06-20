@@ -1,33 +1,53 @@
 package org.team3.loveyoga.pojo;
 
 public class Sign_gym {
-    private Integer ysgId;
+    private Integer ysg_id;
 
-    private Integer ysgCid;
+    private Integer ysg_cid;
 
-    private Integer ysgFlag;
+    private Integer ysg_flag;
 
-    public Integer getYsgId() {
-        return ysgId;
-    }
+	public Integer getYsg_id() {
+		return ysg_id;
+	}
 
-    public void setYsgId(Integer ysgId) {
-        this.ysgId = ysgId;
-    }
+	public void setYsg_id(Integer ysg_id) {
+		this.ysg_id = ysg_id;
+	}
 
-    public Integer getYsgCid() {
-        return ysgCid;
-    }
+	public Integer getYsg_cid() {
+		return ysg_cid;
+	}
 
-    public void setYsgCid(Integer ysgCid) {
-        this.ysgCid = ysgCid;
-    }
+	public void setYsg_cid(Integer ysg_cid) {
+		this.ysg_cid = ysg_cid;
+	}
 
-    public Integer getYsgFlag() {
-        return ysgFlag;
-    }
+	public Integer getYsg_flag() {
+		return ysg_flag;
+	}
 
-    public void setYsgFlag(Integer ysgFlag) {
-        this.ysgFlag = ysgFlag;
-    }
+	public void setYsg_flag(Integer ysg_flag) {
+		this.ysg_flag = ysg_flag;
+	}
+
+	public Sign_gym(Integer ysg_id, Integer ysg_cid, Integer ysg_flag) {
+
+		this.ysg_id = ysg_id;
+		this.ysg_cid = ysg_cid;
+		this.ysg_flag = ysg_flag;
+	}
+
+	public Sign_gym() {
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Sign_gym [ysg_id=" + ysg_id + ", ysg_cid=" + ysg_cid + ", ysg_flag=" + ysg_flag + "]";
+	}
+	
+	
+	
+    
 }

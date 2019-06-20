@@ -3,43 +3,52 @@ package org.team3.loveyoga.pojo;
 import java.math.BigDecimal;
 
 public class Wallet {
-    private Integer ywId;
+    private Integer yw_id;
 
-    private Integer ywCardid;
+    private BigDecimal yw_balance;
 
-    private BigDecimal ywBalance;
+    private Integer yw_flag;
 
-    private Integer ywFlag;
+	public Integer getYw_id() {
+		return yw_id;
+	}
 
-    public Integer getYwId() {
-        return ywId;
-    }
+	public void setYw_id(Integer yw_id) {
+		this.yw_id = yw_id;
+	}
 
-    public void setYwId(Integer ywId) {
-        this.ywId = ywId;
-    }
+	public BigDecimal getYw_balance() {
+		return yw_balance;
+	}
 
-    public Integer getYwCardid() {
-        return ywCardid;
-    }
+	public void setYw_balance(BigDecimal yw_balance) {
+		this.yw_balance = yw_balance;
+	}
 
-    public void setYwCardid(Integer ywCardid) {
-        this.ywCardid = ywCardid;
-    }
+	public Integer getYw_flag() {
+		return yw_flag;
+	}
 
-    public BigDecimal getYwBalance() {
-        return ywBalance;
-    }
+	public void setYw_flag(Integer yw_flag) {
+		this.yw_flag = yw_flag;
+	}
 
-    public void setYwBalance(BigDecimal ywBalance) {
-        this.ywBalance = ywBalance;
-    }
+	public Wallet(Integer yw_id, BigDecimal yw_balance, Integer yw_flag) {
+		
+		this.yw_id = yw_id;
+		this.yw_balance = yw_balance;
+		this.yw_flag = yw_flag;
+	}
 
-    public Integer getYwFlag() {
-        return ywFlag;
-    }
+	public Wallet() {
+		
+	}
 
-    public void setYwFlag(Integer ywFlag) {
-        this.ywFlag = ywFlag;
-    }
+	@Override
+	public String toString() {
+		return "Wallet [yw_id=" + yw_id + ", yw_balance=" + yw_balance + ", yw_flag=" + yw_flag + "]";
+	}
+	
+	
+    
 }

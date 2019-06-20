@@ -3,53 +3,76 @@ package org.team3.loveyoga.pojo;
 import java.math.BigDecimal;
 
 public class Bankcard_choose {
-    private Integer ybcId;
+    private Integer ybc_id;
 
-    private Integer ybcYuid;
+    private Integer ybc_yuid;
 
-    private String ybcCardnumber;
+    private String ybc_cardnumber;
 
-    private BigDecimal ybcBalance;
+    private BigDecimal ybc_balance;
 
-    private Integer ybcFlag;
+    private Integer ybc_flag;
 
-    public Integer getYbcId() {
-        return ybcId;
-    }
+	public Integer getYbc_id() {
+		return ybc_id;
+	}
 
-    public void setYbcId(Integer ybcId) {
-        this.ybcId = ybcId;
-    }
+	public void setYbc_id(Integer ybc_id) {
+		this.ybc_id = ybc_id;
+	}
 
-    public Integer getYbcYuid() {
-        return ybcYuid;
-    }
+	public Integer getYbc_yuid() {
+		return ybc_yuid;
+	}
 
-    public void setYbcYuid(Integer ybcYuid) {
-        this.ybcYuid = ybcYuid;
-    }
+	public void setYbc_yuid(Integer ybc_yuid) {
+		this.ybc_yuid = ybc_yuid;
+	}
 
-    public String getYbcCardnumber() {
-        return ybcCardnumber;
-    }
+	public String getYbc_cardnumber() {
+		return ybc_cardnumber;
+	}
 
-    public void setYbcCardnumber(String ybcCardnumber) {
-        this.ybcCardnumber = ybcCardnumber;
-    }
+	public void setYbc_cardnumber(String ybc_cardnumber) {
+		this.ybc_cardnumber = ybc_cardnumber;
+	}
 
-    public BigDecimal getYbcBalance() {
-        return ybcBalance;
-    }
+	public BigDecimal getYbc_balance() {
+		return ybc_balance;
+	}
 
-    public void setYbcBalance(BigDecimal ybcBalance) {
-        this.ybcBalance = ybcBalance;
-    }
+	public void setYbc_balance(BigDecimal ybc_balance) {
+		this.ybc_balance = ybc_balance;
+	}
 
-    public Integer getYbcFlag() {
-        return ybcFlag;
-    }
+	public Integer getYbc_flag() {
+		return ybc_flag;
+	}
 
-    public void setYbcFlag(Integer ybcFlag) {
-        this.ybcFlag = ybcFlag;
-    }
+	public void setYbc_flag(Integer ybc_flag) {
+		this.ybc_flag = ybc_flag;
+	}
+
+	public Bankcard_choose(Integer ybc_id, Integer ybc_yuid, String ybc_cardnumber, BigDecimal ybc_balance,
+			Integer ybc_flag) {
+		
+		this.ybc_id = ybc_id;
+		this.ybc_yuid = ybc_yuid;
+		this.ybc_cardnumber = ybc_cardnumber;
+		this.ybc_balance = ybc_balance;
+		this.ybc_flag = ybc_flag;
+	}
+
+	public Bankcard_choose() {
+		
+	}
+
+	@Override
+	public String toString() {
+		return "Bankcard_choose [ybc_id=" + ybc_id + ", ybc_yuid=" + ybc_yuid + ", ybc_cardnumber=" + ybc_cardnumber
+				+ ", ybc_balance=" + ybc_balance + ", ybc_flag=" + ybc_flag + "]";
+	}
+	
+	
+    
 }

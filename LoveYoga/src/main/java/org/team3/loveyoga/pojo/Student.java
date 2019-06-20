@@ -182,10 +182,4 @@ public class Student {
 					+ ", ys_uid=" + ys_uid + ", yv_vid=" + yv_vid + ", yc_cid=" + yc_cid + ", ys_note=" + ys_note + "]";
 		}
 
-	  
-
-		
-	    
-	    
-
 }

@@ -103,6 +103,14 @@ public class Order {
 	public void setYo_comment(String yo_comment) {
 		this.yo_comment = yo_comment;
 	}
+
+	@Override
+	public String toString() {
+		return "Order [yo_id=" + yo_id + ", yo_sid=" + yo_sid + ", yo_cid=" + yo_cid + ", yo_requesttime="
+				+ yo_requesttime + ", yo_ordernumber=" + yo_ordernumber + ", yo_paynumber=" + yo_paynumber
+				+ ", yo_createtime=" + yo_createtime + ", yo_state=" + yo_state + ", yo_paytime=" + yo_paytime
+				+ ", yo_comment=" + yo_comment + "]";
+	}
     
     
 

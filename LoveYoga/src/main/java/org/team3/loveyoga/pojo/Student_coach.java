@@ -15,10 +15,21 @@ public class Student_coach {
 	public Integer getCid() {
 		return cid;
 	}
+	
 	public void setCid(Integer cid) {
 		this.cid = cid;
 	}
 	
+	public Student_coach(List<Student> uid, Integer cid) {
+		this.uid = uid;
+		this.cid = cid;
+	}
+	public Student_coach() {
+		
+	}
 	
-	
+	@Override
+	public String toString() {
+		return "Student_coach [uid=" + uid + ", cid=" + cid + "]";
+	}
 }

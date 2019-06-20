@@ -7,7 +7,7 @@ import org.team3.loveyoga.pojo.Student;
 
 public interface OrderService {
 	
-	List<Order> myOrders(Integer cid);
+	List<Order> myOrders(Integer yo_cid);
 	
-	List<Student> selectStudentBySid(Integer ys_id);
+	List<Student> selectStudentAll();
 }
