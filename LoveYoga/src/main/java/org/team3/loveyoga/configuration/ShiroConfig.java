@@ -73,6 +73,7 @@ public class ShiroConfig {
 		//设置其他过滤选项
 		Map<String, String> map=new HashMap<>();
 		map.put("/logout", "logout");  //注销
+		
 		map.put("/**", "anon");  	 //暂时不开权限，所有请求自由访问，最后来整权限问题；
 		bean.setFilterChainDefinitionMap(map);
 		return bean;
