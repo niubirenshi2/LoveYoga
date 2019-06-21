@@ -6,5 +6,5 @@ import java.util.Map;
 import org.team3.loveyoga.pojo.Circle;
 
 public interface AttentionService {
-	Map<Object,List<Circle>> selectMyCircle(Integer uid);
+	List<Circle> selectMyCircle(Integer uid);
 }

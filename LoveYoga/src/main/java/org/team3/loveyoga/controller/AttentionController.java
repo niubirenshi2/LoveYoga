@@ -28,10 +28,9 @@ public class AttentionController {
 	
 	@RequestMapping("/selectMyCircle")
 	@ResponseBody
-	public Map<Object,List<Circle>> selectMyCircle(){
+	public List<Circle> selectMyCircle(){
 		//根据登录表的id查询朋友圈
 		Integer id=2001;
-		System.out.println("开始进入");
 		return attentionService.selectMyCircle(id);
 	}
 }
