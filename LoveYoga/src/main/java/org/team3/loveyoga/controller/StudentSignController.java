@@ -67,21 +67,22 @@ public class StudentSignController {
 
 	//向教练发起签约请求
 	@RequestMapping("/sendRequest")
-	public String requestCoach(Student student, Coach coach, OrderList orderList, 
-				Message message,HttpServletRequest request,Integer userID,Integer couchID){
+	public String requestCoach(HttpServletRequest request,Integer couchID){
 		HttpSession session = request.getSession();
+		OrderList orderList = new OrderList();
+		Message message = new Message();
 		//从session中取出当前登录学员的uid
 //		int userID = (int) session.getAttribute("yu_id");
 		
 		//模拟学员、教练uid
-		userID = 1;
+		int userID = 1;
 		couchID = 2;
 		
 		//获得当前用户信息
-		student = studentService.findStudentByUid(userID);
+		Student student = studentService.findStudentByUid(userID);
 		//获得对应的教练信息
 //		coach = coachService.findCoachByUid(coach.getUid());
-		coach = coachService.findCoachByUid(couchID);
+		Coach coach = coachService.findCoachByUid(couchID);
 		//判断用户余额是否足够
 		if(student.getBalance().doubleValue() < coach.getPrice().doubleValue()){
 			map.put("mes", "您的余额不足，请充值");
