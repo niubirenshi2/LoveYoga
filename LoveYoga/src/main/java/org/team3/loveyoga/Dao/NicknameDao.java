@@ -5,7 +5,5 @@ import org.team3.loveyoga.pojo.Nickname;
 public interface NicknameDao {
     int insert(Nickname record);
 
-	int insertSelective(Nickname record);
-
-
+    int insertSelective(Nickname record);
 }

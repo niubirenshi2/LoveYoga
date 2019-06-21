@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.team3.loveyoga.Dao.StudentDao">
+  <resultMap id="BaseResultMap" type="org.team3.loveyoga.pojo.Student">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="QQ" jdbcType="VARCHAR" property="qq" />
+    <result column="nickName" jdbcType="VARCHAR" property="nickname" />
+    <result column="headImg" jdbcType="VARCHAR" property="headimg" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="balance" jdbcType="DECIMAL" property="balance" />
+    <result column="creatTime" jdbcType="TIMESTAMP" property="creattime" />
+    <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="userID" jdbcType="INTEGER" property="userid" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="org.team3.loveyoga.pojo.Student">
+    <result column="note" jdbcType="LONGVARCHAR" property="note" />
+  </resultMap>
+  <sql id="Blob_Column_List">
+    note
+  </sql>
+  <insert id="insert" parameterType="org.team3.loveyoga.pojo.Student">
+    insert into student (id, QQ, nickName, 
+      headImg, address, balance, 
+      creatTime, updateTime, state, 
+      userID, flag, note
+      )
+    values (#{id,jdbcType=INTEGER}, #{qq,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, 
+      #{headimg,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{balance,jdbcType=DECIMAL}, 
+      #{creattime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER}, 
+      #{userid,jdbcType=INTEGER}, #{flag,jdbcType=INTEGER}, #{note,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.team3.loveyoga.pojo.Student">
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="qq != null">
+        QQ,
+      </if>
+      <if test="nickname != null">
+        nickName,
+      </if>
+      <if test="headimg != null">
+        headImg,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="balance != null">
+        balance,
+      </if>
+      <if test="creattime != null">
+        creatTime,
+      </if>
+      <if test="updatetime != null">
+        updateTime,
+      </if>
+      <if test="state != null">
+        state,
+      </if>
+      <if test="userid != null">
+        userID,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="headimg != null">
+        #{headimg,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="creattime != null">
+        #{creattime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null">
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

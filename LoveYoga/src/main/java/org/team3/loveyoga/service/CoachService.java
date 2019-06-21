@@ -4,8 +4,6 @@ import org.team3.loveyoga.pojo.Coach;
 
 public interface CoachService {
 
-	boolean addCoach(Coach coach2);
-
-	Integer findCoach(String account);
+	boolean addInfo(Coach coach);
 
 }

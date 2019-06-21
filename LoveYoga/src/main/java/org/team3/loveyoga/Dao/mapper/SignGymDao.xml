@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.team3.loveyoga.Dao.SignGymDao">
+  <resultMap id="BaseResultMap" type="org.team3.loveyoga.pojo.SignGym">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="coachID" jdbcType="INTEGER" property="coachid" />
+    <result column="gymID" jdbcType="INTEGER" property="gymid" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="org.team3.loveyoga.pojo.SignGym">
+    insert into signGym (id, coachID, gymID, 
+      flag)
+    values (#{id,jdbcType=INTEGER}, #{coachid,jdbcType=INTEGER}, #{gymid,jdbcType=INTEGER}, 
+      #{flag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.team3.loveyoga.pojo.SignGym">
+    insert into signGym
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="coachid != null">
+        coachID,
+      </if>
+      <if test="gymid != null">
+        gymID,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="coachid != null">
+        #{coachid,jdbcType=INTEGER},
+      </if>
+      <if test="gymid != null">
+        #{gymid,jdbcType=INTEGER},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.team3.loveyoga.Dao.HeadImgDao">
+  <resultMap id="BaseResultMap" type="org.team3.loveyoga.pojo.HeadImg">
+    <result column="headImgId" jdbcType="INTEGER" property="headimgid" />
+    <result column="headImg" jdbcType="VARCHAR" property="headimg" />
+    <result column="flag" jdbcType="BIGINT" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="org.team3.loveyoga.pojo.HeadImg">
+    insert into headImg (headImgId, headImg, flag
+      )
+    values (#{headimgid,jdbcType=INTEGER}, #{headimg,jdbcType=VARCHAR}, #{flag,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.team3.loveyoga.pojo.HeadImg">
+    insert into headImg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="headimgid != null">
+        headImgId,
+      </if>
+      <if test="headimg != null">
+        headImg,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="headimgid != null">
+        #{headimgid,jdbcType=INTEGER},
+      </if>
+      <if test="headimg != null">
+        #{headimg,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+</mapper>

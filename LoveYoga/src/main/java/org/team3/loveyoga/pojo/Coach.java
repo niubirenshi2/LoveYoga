@@ -1,84 +1,186 @@
 package org.team3.loveyoga.pojo;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 public class Coach {
-    private Integer yu_id;
+    private Integer id;
 
-	private String yu_tel;
+    private Integer uid;
 
-	private String yu_password;
+    private Date authority;
 
-	private String yu_name;
+    private String headimg;
 
-	private String yu_email;
+    private String nickname;
 
-	private Integer yu_rid;
+    private String address;
 
-	private Integer flag;
+    private BigDecimal price;
 
-	public Integer getYu_id() {
-		return yu_id;
-	}
+    private Integer freetime;
 
-	public void setYu_id(Integer yu_id) {
-		this.yu_id = yu_id;
-	}
+    private Integer acceptstate;
 
-	public String getYu_tel() {
-		return yu_tel;
-	}
+    private String genre;
 
-	public void setYu_tel(String yu_tel) {
-		this.yu_tel = yu_tel;
-	}
+    private Integer telvisible;
 
-	public String getYu_password() {
-		return yu_password;
-	}
+    private String telphone;
 
-	public void setYu_password(String yu_password) {
-		this.yu_password = yu_password;
-	}
+    private Integer coursestate;
 
-	public String getYu_name() {
-		return yu_name;
-	}
+    private Integer persoaltrainer;
 
-	public void setYu_name(String yu_name) {
-		this.yu_name = yu_name;
-	}
+    private BigDecimal expectedsalary;
 
-	public String getYu_email() {
-		return yu_email;
-	}
+    private String qq;
 
-	public void setYu_email(String yu_email) {
-		this.yu_email = yu_email;
-	}
+    private BigDecimal balance;
 
-	public Integer getYu_rid() {
-		return yu_rid;
-	}
+    private Integer flag;
 
-	public void setYu_rid(Integer yu_rid) {
-		this.yu_rid = yu_rid;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public Integer getFlag() {
-		return flag;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public void setFlag(Integer flag) {
-		this.flag = flag;
-	}
+    public Integer getUid() {
+        return uid;
+    }
 
-	@Override
-	public String toString() {
-		return "Coach [yu_id=" + yu_id + ", yu_tel=" + yu_tel + ", yu_password=" + yu_password + ", yu_name=" + yu_name
-				+ ", yu_email=" + yu_email + ", yu_rid=" + yu_rid + ", flag=" + flag + "]";
-	}
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
 
-	
+    public Date getAuthority() {
+        return authority;
+    }
 
-	
+    public void setAuthority(Date authority) {
+        this.authority = authority;
+    }
 
+    public String getHeadimg() {
+        return headimg;
+    }
+
+    public void setHeadimg(String headimg) {
+        this.headimg = headimg;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public Integer getFreetime() {
+        return freetime;
+    }
+
+    public void setFreetime(Integer freetime) {
+        this.freetime = freetime;
+    }
+
+    public Integer getAcceptstate() {
+        return acceptstate;
+    }
+
+    public void setAcceptstate(Integer acceptstate) {
+        this.acceptstate = acceptstate;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public Integer getTelvisible() {
+        return telvisible;
+    }
+
+    public void setTelvisible(Integer telvisible) {
+        this.telvisible = telvisible;
+    }
+
+    public String getTelphone() {
+        return telphone;
+    }
+
+    public void setTelphone(String telphone) {
+        this.telphone = telphone;
+    }
+
+    public Integer getCoursestate() {
+        return coursestate;
+    }
+
+    public void setCoursestate(Integer coursestate) {
+        this.coursestate = coursestate;
+    }
+
+    public Integer getPersoaltrainer() {
+        return persoaltrainer;
+    }
+
+    public void setPersoaltrainer(Integer persoaltrainer) {
+        this.persoaltrainer = persoaltrainer;
+    }
+
+    public BigDecimal getExpectedsalary() {
+        return expectedsalary;
+    }
+
+    public void setExpectedsalary(BigDecimal expectedsalary) {
+        this.expectedsalary = expectedsalary;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
 }

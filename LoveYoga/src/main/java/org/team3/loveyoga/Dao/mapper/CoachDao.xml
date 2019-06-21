@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.team3.loveyoga.Dao.CoachDao">
+  <resultMap id="BaseResultMap" type="org.team3.loveyoga.pojo.Coach">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="uid" jdbcType="INTEGER" property="uid" />
+    <result column="authority" jdbcType="TIMESTAMP" property="authority" />
+    <result column="headImg" jdbcType="VARCHAR" property="headimg" />
+    <result column="nickName" jdbcType="VARCHAR" property="nickname" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="freetime" jdbcType="INTEGER" property="freetime" />
+    <result column="acceptState" jdbcType="INTEGER" property="acceptstate" />
+    <result column="genre" jdbcType="VARCHAR" property="genre" />
+    <result column="telvisible" jdbcType="INTEGER" property="telvisible" />
+    <result column="telphone" jdbcType="VARCHAR" property="telphone" />
+    <result column="courseState" jdbcType="INTEGER" property="coursestate" />
+    <result column="persoalTrainer" jdbcType="INTEGER" property="persoaltrainer" />
+    <result column="expectedSalary" jdbcType="DECIMAL" property="expectedsalary" />
+    <result column="qq" jdbcType="VARCHAR" property="qq" />
+    <result column="balance" jdbcType="DECIMAL" property="balance" />
+    <result column="flag" jdbcType="INTEGER" property="flag" />
+  </resultMap>
+  <insert id="insert" parameterType="org.team3.loveyoga.pojo.Coach">
+    insert into coach (id, uid, authority, 
+      headImg, nickName, address, 
+      price, freetime, acceptState, 
+      genre, telvisible, telphone, 
+      courseState, persoalTrainer, expectedSalary, 
+      qq, balance, flag)
+    values (#{id,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{authority,jdbcType=TIMESTAMP}, 
+      #{headimg,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{freetime,jdbcType=INTEGER}, #{acceptstate,jdbcType=INTEGER}, 
+      #{genre,jdbcType=VARCHAR}, #{telvisible,jdbcType=INTEGER}, #{telphone,jdbcType=VARCHAR}, 
+      #{coursestate,jdbcType=INTEGER}, #{persoaltrainer,jdbcType=INTEGER}, #{expectedsalary,jdbcType=DECIMAL}, 
+      #{qq,jdbcType=VARCHAR}, #{balance,jdbcType=DECIMAL}, #{flag,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="org.team3.loveyoga.pojo.Coach">
+    insert into coach
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uid != null">
+        uid,
+      </if>
+      <if test="authority != null">
+        authority,
+      </if>
+      <if test="headimg != null">
+        headImg,
+      </if>
+      <if test="nickname != null">
+        nickName,
+      </if>
+      <if test="address != null">
+        address,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="freetime != null">
+        freetime,
+      </if>
+      <if test="acceptstate != null">
+        acceptState,
+      </if>
+      <if test="genre != null">
+        genre,
+      </if>
+      <if test="telvisible != null">
+        telvisible,
+      </if>
+      <if test="telphone != null">
+        telphone,
+      </if>
+      <if test="coursestate != null">
+        courseState,
+      </if>
+      <if test="persoaltrainer != null">
+        persoalTrainer,
+      </if>
+      <if test="expectedsalary != null">
+        expectedSalary,
+      </if>
+      <if test="qq != null">
+        qq,
+      </if>
+      <if test="balance != null">
+        balance,
+      </if>
+      <if test="flag != null">
+        flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null">
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="authority != null">
+        #{authority,jdbcType=TIMESTAMP},
+      </if>
+      <if test="headimg != null">
+        #{headimg,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="freetime != null">
+        #{freetime,jdbcType=INTEGER},
+      </if>
+      <if test="acceptstate != null">
+        #{acceptstate,jdbcType=INTEGER},
+      </if>
+      <if test="genre != null">
+        #{genre,jdbcType=VARCHAR},
+      </if>
+      <if test="telvisible != null">
+        #{telvisible,jdbcType=INTEGER},
+      </if>
+      <if test="telphone != null">
+        #{telphone,jdbcType=VARCHAR},
+      </if>
+      <if test="coursestate != null">
+        #{coursestate,jdbcType=INTEGER},
+      </if>
+      <if test="persoaltrainer != null">
+        #{persoaltrainer,jdbcType=INTEGER},
+      </if>
+      <if test="expectedsalary != null">
+        #{expectedsalary,jdbcType=DECIMAL},
+      </if>
+      <if test="qq != null">
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="flag != null">
+        #{flag,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
