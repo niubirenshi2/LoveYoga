@@ -7,4 +7,8 @@ import org.team3.loveyoga.pojo.Circle;
 
 public interface AttentionService {
 	List<Circle> selectMyCircle(Integer uid);
+	
+	String insertFollowOne(Integer uid,Integer fid);
+	
+	String deleteFollowOne(Integer uid,Integer fid);
 }

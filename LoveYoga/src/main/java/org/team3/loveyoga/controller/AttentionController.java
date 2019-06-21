@@ -33,4 +33,30 @@ public class AttentionController {
 		Integer id=2001;
 		return attentionService.selectMyCircle(id);
 	}
+	
+	/**
+	 * 点击关注加入关注列表
+	 * 
+	 * 登录成功之后得到登录人员id,点击关注之后前端传过来一个关注人员id
+	 * @return 是否关注成功
+	 */
+	@RequestMapping("/insertFollowOne")
+	@ResponseBody
+	public String insertFollowOne(Integer ya_fid){
+		//得到登录人员的id
+//		Integer uid=2001;
+		return attentionService.insertFollowOne(2001,3);
+	}
+	
+	@RequestMapping("/deleteFollowOne")
+	@ResponseBody
+	public String deleteFollowOne(Integer ya_fid){
+		//得到登录人员id
+		//得到要删除人员的id
+		return attentionService.deleteFollowOne(2001, 3);
+	}
+	
+	//查看关注我的人员
+	public List<>
+	
 }
