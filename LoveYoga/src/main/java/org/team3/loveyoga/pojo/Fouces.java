@@ -2,20 +2,18 @@ package org.team3.loveyoga.pojo;
 
 import java.util.Date;
 
-public class Circle {
+public class Fouces {
     private Integer id;
 
     private Integer userid;
 
-    private String img;
+    private Integer foucesid;
 
-    private Date creattime;
+    private Date createtime;
 
     private Date deletetime;
 
     private Integer flag;
-
-    private String text;
 
     public Integer getId() {
         return id;
@@ -33,20 +31,20 @@ public class Circle {
         this.userid = userid;
     }
 
-    public String getImg() {
-        return img;
+    public Integer getFoucesid() {
+        return foucesid;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setFoucesid(Integer foucesid) {
+        this.foucesid = foucesid;
     }
 
-    public Date getCreattime() {
-        return creattime;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setCreattime(Date creattime) {
-        this.creattime = creattime;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
     public Date getDeletetime() {
@@ -63,13 +61,5 @@ public class Circle {
 
     public void setFlag(Integer flag) {
         this.flag = flag;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public void setText(String text) {
-        this.text = text;
     }
 }

@@ -1,17 +1,15 @@
 package org.team3.loveyoga.pojo;
 
-import java.math.BigDecimal;
-
-public class Product {
+public class GymCourse {
     private Integer id;
 
     private String name;
 
-    private BigDecimal price;
-
-    private String gymid;
+    private Integer gymid;
 
     private Integer flag;
+
+    private String content;
 
     public Integer getId() {
         return id;
@@ -29,19 +27,11 @@ public class Product {
         this.name = name;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public String getGymid() {
+    public Integer getGymid() {
         return gymid;
     }
 
-    public void setGymid(String gymid) {
+    public void setGymid(Integer gymid) {
         this.gymid = gymid;
     }
 
@@ -51,5 +41,13 @@ public class Product {
 
     public void setFlag(Integer flag) {
         this.flag = flag;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

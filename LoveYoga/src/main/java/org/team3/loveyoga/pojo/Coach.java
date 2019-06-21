@@ -1,84 +1,187 @@
 package org.team3.loveyoga.pojo;
 
+import java.math.BigDecimal;
+import java.util.Date;
+
 public class Coach {
-    private Integer yu_id;
+    private Integer id;
 
-	private String yu_tel;
+    private Integer uid;
 
-	private String yu_password;
+    private Date authority;
 
-	private String yu_name;
+    private String headImg;
 
-	private String yu_email;
+    private String nickName;
 
-	private Integer yu_rid;
+    private String address;
 
-	private Integer flag;
+    private BigDecimal price;
 
-	public Integer getYu_id() {
-		return yu_id;
+    private Integer freetime;
+
+    private Integer acceptState;
+
+    private String genre;
+
+    private Integer telvisible;
+
+    private String telphone;
+
+    private Integer courseState;
+
+    private Integer persoalTrainer;
+
+    private BigDecimal expectedSalary;
+
+    private String qq;
+
+    private BigDecimal balance;
+
+    private Integer flag;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getUid() {
+        return uid;
+    }
+
+    public void setUid(Integer uid) {
+        this.uid = uid;
+    }
+
+    public Date getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(Date authority) {
+        this.authority = authority;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public Integer getFreetime() {
+        return freetime;
+    }
+
+    public void setFreetime(Integer freetime) {
+        this.freetime = freetime;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public Integer getTelvisible() {
+        return telvisible;
+    }
+
+    public void setTelvisible(Integer telvisible) {
+        this.telvisible = telvisible;
+    }
+
+    public String getTelphone() {
+        return telphone;
+    }
+
+    public void setTelphone(String telphone) {
+        this.telphone = telphone;
+    }
+
+    public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
+
+	public String getHeadImg() {
+		return headImg;
 	}
 
-	public void setYu_id(Integer yu_id) {
-		this.yu_id = yu_id;
+	public void setHeadImg(String headImg) {
+		this.headImg = headImg;
 	}
 
-	public String getYu_tel() {
-		return yu_tel;
+	public String getNickName() {
+		return nickName;
 	}
 
-	public void setYu_tel(String yu_tel) {
-		this.yu_tel = yu_tel;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 
-	public String getYu_password() {
-		return yu_password;
+	public Integer getAcceptState() {
+		return acceptState;
 	}
 
-	public void setYu_password(String yu_password) {
-		this.yu_password = yu_password;
+	public void setAcceptState(Integer acceptState) {
+		this.acceptState = acceptState;
 	}
 
-	public String getYu_name() {
-		return yu_name;
+	public Integer getCourseState() {
+		return courseState;
 	}
 
-	public void setYu_name(String yu_name) {
-		this.yu_name = yu_name;
+	public void setCourseState(Integer courseState) {
+		this.courseState = courseState;
 	}
 
-	public String getYu_email() {
-		return yu_email;
+	public Integer getPersoalTrainer() {
+		return persoalTrainer;
 	}
 
-	public void setYu_email(String yu_email) {
-		this.yu_email = yu_email;
+	public void setPersoalTrainer(Integer persoalTrainer) {
+		this.persoalTrainer = persoalTrainer;
 	}
 
-	public Integer getYu_rid() {
-		return yu_rid;
+	public BigDecimal getExpectedSalary() {
+		return expectedSalary;
 	}
 
-	public void setYu_rid(Integer yu_rid) {
-		this.yu_rid = yu_rid;
+	public void setExpectedSalary(BigDecimal expectedSalary) {
+		this.expectedSalary = expectedSalary;
 	}
-
-	public Integer getFlag() {
-		return flag;
-	}
-
-	public void setFlag(Integer flag) {
-		this.flag = flag;
-	}
-
-	@Override
-	public String toString() {
-		return "Coach [yu_id=" + yu_id + ", yu_tel=" + yu_tel + ", yu_password=" + yu_password + ", yu_name=" + yu_name
-				+ ", yu_email=" + yu_email + ", yu_rid=" + yu_rid + ", flag=" + flag + "]";
-	}
-
-	
-
-	
-
+    
 }
