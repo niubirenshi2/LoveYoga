@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 public class Gym {
     private Integer id;
 
-    private String gymname;
+    private String gymName;
 
     private String telphone;
 
@@ -23,103 +23,124 @@ public class Gym {
 
     private String account;
 
+    private Integer state;
+
     private Integer flag;
 
     private String description;
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getGymname() {
-        return gymname;
-    }
+	public String getGymName() {
+		return gymName;
+	}
 
-    public void setGymname(String gymname) {
-        this.gymname = gymname;
-    }
+	public void setGymName(String gymName) {
+		this.gymName = gymName;
+	}
 
-    public String getTelphone() {
-        return telphone;
-    }
+	public String getTelphone() {
+		return telphone;
+	}
 
-    public void setTelphone(String telphone) {
-        this.telphone = telphone;
-    }
+	public void setTelphone(String telphone) {
+		this.telphone = telphone;
+	}
 
-    public String getQq() {
-        return qq;
-    }
+	public String getQq() {
+		return qq;
+	}
 
-    public void setQq(String qq) {
-        this.qq = qq;
-    }
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
 
-    public String getImg() {
-        return img;
-    }
+	public String getImg() {
+		return img;
+	}
 
-    public void setImg(String img) {
-        this.img = img;
-    }
+	public void setImg(String img) {
+		this.img = img;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public Integer getUid() {
-        return uid;
-    }
+	public Integer getUid() {
+		return uid;
+	}
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
 
-    public String getPlan() {
-        return plan;
-    }
+	public String getPlan() {
+		return plan;
+	}
 
-    public void setPlan(String plan) {
-        this.plan = plan;
-    }
+	public void setPlan(String plan) {
+		this.plan = plan;
+	}
 
-    public BigDecimal getBalance() {
-        return balance;
-    }
+	public BigDecimal getBalance() {
+		return balance;
+	}
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
+	public void setBalance(BigDecimal balance) {
+		this.balance = balance;
+	}
 
-    public String getAccount() {
-        return account;
-    }
+	public String getAccount() {
+		return account;
+	}
 
-    public void setAccount(String account) {
-        this.account = account;
-    }
+	public void setAccount(String account) {
+		this.account = account;
+	}
 
-    public Integer getFlag() {
-        return flag;
-    }
+	public Integer getFlag() {
+		return flag;
+	}
 
-    public void setFlag(Integer flag) {
-        this.flag = flag;
-    }
+	public void setFlag(Integer flag) {
+		this.flag = flag;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+
+	public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
+	}
+
+	@Override
+	public String toString() {
+		return "Gym [id=" + id + ", gymName=" + gymName + ", telphone=" + telphone + ", qq=" + qq + ", img=" + img
+				+ ", address=" + address + ", uid=" + uid + ", plan=" + plan + ", balance=" + balance + ", account="
+				+ account + ", state=" + state + ", flag=" + flag + ", description=" + description + "]";
+	}
+    
+
+ 
 }

@@ -8,119 +8,128 @@ public class Student {
 
     private String qq;
 
-    private String nickname;
+    private String nickName;
 
-    private String headimg;
+    private String headImg;
 
     private String address;
 
     private BigDecimal balance;
 
-    private Date creattime;
+    private Date creatTime;
 
-    private Date updatetime;
+    private Date updateTime;
 
     private Integer state;
 
-    private Integer userid;
+    private Integer userID;
 
     private Integer flag;
 
     private String note;
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public String getQq() {
-        return qq;
-    }
+	public String getQq() {
+		return qq;
+	}
 
-    public void setQq(String qq) {
-        this.qq = qq;
-    }
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
 
-    public String getNickname() {
-        return nickname;
-    }
+	public String getNickName() {
+		return nickName;
+	}
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
 
-    public String getHeadimg() {
-        return headimg;
-    }
+	public String getHeadImg() {
+		return headImg;
+	}
 
-    public void setHeadimg(String headimg) {
-        this.headimg = headimg;
-    }
+	public void setHeadImg(String headImg) {
+		this.headImg = headImg;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public BigDecimal getBalance() {
-        return balance;
-    }
+	public BigDecimal getBalance() {
+		return balance;
+	}
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
+	public void setBalance(BigDecimal balance) {
+		this.balance = balance;
+	}
 
-    public Date getCreattime() {
-        return creattime;
-    }
+	public Date getCreatTime() {
+		return creatTime;
+	}
 
-    public void setCreattime(Date creattime) {
-        this.creattime = creattime;
-    }
+	public void setCreatTime(Date creatTime) {
+		this.creatTime = creatTime;
+	}
 
-    public Date getUpdatetime() {
-        return updatetime;
-    }
+	public Date getUpdateTime() {
+		return updateTime;
+	}
 
-    public void setUpdatetime(Date updatetime) {
-        this.updatetime = updatetime;
-    }
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
+	}
 
-    public Integer getState() {
-        return state;
-    }
+	public Integer getState() {
+		return state;
+	}
 
-    public void setState(Integer state) {
-        this.state = state;
-    }
+	public void setState(Integer state) {
+		this.state = state;
+	}
 
-    public Integer getUserid() {
-        return userid;
-    }
+	public Integer getUserID() {
+		return userID;
+	}
 
-    public void setUserid(Integer userid) {
-        this.userid = userid;
-    }
+	public void setUserID(Integer userID) {
+		this.userID = userID;
+	}
 
-    public Integer getFlag() {
-        return flag;
-    }
+	public Integer getFlag() {
+		return flag;
+	}
 
-    public void setFlag(Integer flag) {
-        this.flag = flag;
-    }
+	public void setFlag(Integer flag) {
+		this.flag = flag;
+	}
 
-    public String getNote() {
-        return note;
-    }
+	public String getNote() {
+		return note;
+	}
 
-    public void setNote(String note) {
-        this.note = note;
-    }
+	public void setNote(String note) {
+		this.note = note;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [id=" + id + ", qq=" + qq + ", nickName=" + nickName + ", headImg=" + headImg + ", address="
+				+ address + ", balance=" + balance + ", creatTime=" + creatTime + ", updateTime=" + updateTime
+				+ ", state=" + state + ", userID=" + userID + ", flag=" + flag + ", note=" + note + "]";
+	}
+
+ 
 }

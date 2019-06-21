@@ -10,9 +10,9 @@ public class Coach {
 
     private Date authority;
 
-    private String headimg;
+    private String headImg;
 
-    private String nickname;
+    private String nickName;
 
     private String address;
 
@@ -20,7 +20,7 @@ public class Coach {
 
     private Integer freetime;
 
-    private Integer acceptstate;
+    private Integer acceptState;
 
     private String genre;
 
@@ -28,11 +28,11 @@ public class Coach {
 
     private String telphone;
 
-    private Integer coursestate;
+    private Integer courseState;
 
-    private Integer persoaltrainer;
+    private Integer persoalTrainer;
 
-    private BigDecimal expectedsalary;
+    private BigDecimal expectedSalary;
 
     private String qq;
 
@@ -40,147 +40,158 @@ public class Coach {
 
     private Integer flag;
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Integer getUid() {
-        return uid;
-    }
+	public Integer getUid() {
+		return uid;
+	}
 
-    public void setUid(Integer uid) {
-        this.uid = uid;
-    }
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
 
-    public Date getAuthority() {
-        return authority;
-    }
+	public Date getAuthority() {
+		return authority;
+	}
 
-    public void setAuthority(Date authority) {
-        this.authority = authority;
-    }
+	public void setAuthority(Date authority) {
+		this.authority = authority;
+	}
 
-    public String getHeadimg() {
-        return headimg;
-    }
+	public String getHeadImg() {
+		return headImg;
+	}
 
-    public void setHeadimg(String headimg) {
-        this.headimg = headimg;
-    }
+	public void setHeadImg(String headImg) {
+		this.headImg = headImg;
+	}
 
-    public String getNickname() {
-        return nickname;
-    }
+	public String getNickName() {
+		return nickName;
+	}
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public BigDecimal getPrice() {
-        return price;
-    }
+	public BigDecimal getPrice() {
+		return price;
+	}
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
 
-    public Integer getFreetime() {
-        return freetime;
-    }
+	public Integer getFreetime() {
+		return freetime;
+	}
 
-    public void setFreetime(Integer freetime) {
-        this.freetime = freetime;
-    }
+	public void setFreetime(Integer freetime) {
+		this.freetime = freetime;
+	}
 
-    public Integer getAcceptstate() {
-        return acceptstate;
-    }
+	public Integer getAcceptState() {
+		return acceptState;
+	}
 
-    public void setAcceptstate(Integer acceptstate) {
-        this.acceptstate = acceptstate;
-    }
+	public void setAcceptState(Integer acceptState) {
+		this.acceptState = acceptState;
+	}
 
-    public String getGenre() {
-        return genre;
-    }
+	public String getGenre() {
+		return genre;
+	}
 
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
 
-    public Integer getTelvisible() {
-        return telvisible;
-    }
+	public Integer getTelvisible() {
+		return telvisible;
+	}
 
-    public void setTelvisible(Integer telvisible) {
-        this.telvisible = telvisible;
-    }
+	public void setTelvisible(Integer telvisible) {
+		this.telvisible = telvisible;
+	}
 
-    public String getTelphone() {
-        return telphone;
-    }
+	public String getTelphone() {
+		return telphone;
+	}
 
-    public void setTelphone(String telphone) {
-        this.telphone = telphone;
-    }
+	public void setTelphone(String telphone) {
+		this.telphone = telphone;
+	}
 
-    public Integer getCoursestate() {
-        return coursestate;
-    }
+	public Integer getCourseState() {
+		return courseState;
+	}
 
-    public void setCoursestate(Integer coursestate) {
-        this.coursestate = coursestate;
-    }
+	public void setCourseState(Integer courseState) {
+		this.courseState = courseState;
+	}
 
-    public Integer getPersoaltrainer() {
-        return persoaltrainer;
-    }
+	public Integer getPersoalTrainer() {
+		return persoalTrainer;
+	}
 
-    public void setPersoaltrainer(Integer persoaltrainer) {
-        this.persoaltrainer = persoaltrainer;
-    }
+	public void setPersoalTrainer(Integer persoalTrainer) {
+		this.persoalTrainer = persoalTrainer;
+	}
 
-    public BigDecimal getExpectedsalary() {
-        return expectedsalary;
-    }
+	public BigDecimal getExpectedSalary() {
+		return expectedSalary;
+	}
 
-    public void setExpectedsalary(BigDecimal expectedsalary) {
-        this.expectedsalary = expectedsalary;
-    }
+	public void setExpectedSalary(BigDecimal expectedSalary) {
+		this.expectedSalary = expectedSalary;
+	}
 
-    public String getQq() {
-        return qq;
-    }
+	public String getQq() {
+		return qq;
+	}
 
-    public void setQq(String qq) {
-        this.qq = qq;
-    }
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
 
-    public BigDecimal getBalance() {
-        return balance;
-    }
+	public BigDecimal getBalance() {
+		return balance;
+	}
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
+	public void setBalance(BigDecimal balance) {
+		this.balance = balance;
+	}
 
-    public Integer getFlag() {
-        return flag;
-    }
+	public Integer getFlag() {
+		return flag;
+	}
 
-    public void setFlag(Integer flag) {
-        this.flag = flag;
-    }
+	public void setFlag(Integer flag) {
+		this.flag = flag;
+	}
+
+	@Override
+	public String toString() {
+		return "Coach [id=" + id + ", uid=" + uid + ", authority=" + authority + ", headImg=" + headImg + ", nickName="
+				+ nickName + ", address=" + address + ", price=" + price + ", freetime=" + freetime + ", acceptState="
+				+ acceptState + ", genre=" + genre + ", telvisible=" + telvisible + ", telphone=" + telphone
+				+ ", courseState=" + courseState + ", persoalTrainer=" + persoalTrainer + ", expectedSalary="
+				+ expectedSalary + ", qq=" + qq + ", balance=" + balance + ", flag=" + flag + "]";
+	}
+
+  
 }

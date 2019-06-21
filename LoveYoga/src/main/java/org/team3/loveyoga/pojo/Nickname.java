@@ -1,18 +1,18 @@
 package org.team3.loveyoga.pojo;
 
 public class Nickname {
-    private Integer nicknameid;
+    private Integer nickNameId;
 
     private String nickname;
 
     private Integer flag;
 
     public Integer getNicknameid() {
-        return nicknameid;
+        return nickNameId;
     }
 
     public void setNicknameid(Integer nicknameid) {
-        this.nicknameid = nicknameid;
+        this.nickNameId = nicknameid;
     }
 
     public String getNickname() {
