@@ -1,8 +1,9 @@
-layui.use(['form', 'layedit', 'laydate','upload'], function(){
+layui.use(['form', 'layedit', 'laydate','upload','element'], function(){
   var form = layui.form
   ,layer = layui.layer
   ,$ = layui.jquery
-  ,upload = layui.upload;
+  ,upload = layui.upload
+  ,element = layui.element;
   
   //执行实例
   var uploadInst = upload.render({

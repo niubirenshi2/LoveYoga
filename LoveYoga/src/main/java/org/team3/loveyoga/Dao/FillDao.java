@@ -20,9 +20,14 @@ public interface FillDao {
 	    		+ "values (#{headImg},#{nickName},#{address},#{creatTime}，#{state}) "
 	    		+ "where uid = #{uid}")
 		boolean fillStudent(Student student);
-
 	    @Insert("insert into Gym (telphone,gymName,address) "
 	    		+ "values (#{telphone},#{gymName},#{address}) "
 	    		+ "where uid = #{uid}")    
 		boolean fillGym(Gym gym);
+
+	    @Select("selcet headImg from coach where uid=#{uid}")
+		boolean checkCoachHeadImg(Coach coach);
+	     
+	    @Select("selcet headImg from student where userID=#{userID}")
+		boolean checkStudentHeadImg(Student student);
 }

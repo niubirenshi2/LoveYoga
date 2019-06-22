@@ -35,17 +35,20 @@ public class FillServiceImpl implements FillService {
 		// 从数据库中随机生成头像
 		Integer hid = (int) (Math.random() * (10));
 		String headImg = fillDao.findHeadImg(hid);
+		
+		//查询是否上传了头像
+		boolean exsitHeadImg = fillDao.checkCoachHeadImg(coach);
 
 		// 如果已经输入了昵称和账号就直接向数据库插入
-		if (coach.getNickName() != null && coach.getHeadImg() != null) {
+		if (coach.getNickName() != null && exsitHeadImg) {
 			re = fillDao.addInfo(coach);
 			return re;
-		} else if (coach.getHeadImg() != null) {
+		} else if (exsitHeadImg && coach.getNickName()==null) {
 			//如果已经上传了头像,就只随机分配一个昵称
 			coach.setNickName(nickName);
 			re = fillDao.addInfo(coach);
 			return re;
-		} else if (coach.getNickName() != null) {
+		} else if (coach.getNickName() != null && !exsitHeadImg) {
 			//如果已经输入了昵称,就只随机分配一个头像
 			coach.setHeadImg(headImg);
 			re = fillDao.addInfo(coach);
@@ -68,17 +71,20 @@ public class FillServiceImpl implements FillService {
 		// 从数据库中随机生成头像
 		Integer hid = (int) (Math.random() * (10));
 		String headImg = fillDao.findHeadImg(hid);
+		
+		//查询是否上传了头像
+		boolean exsitHeadImg = fillDao.checkStudentHeadImg(student);
 
 		// 如果已经输入了昵称和账号就直接向数据库插入
-		if (student.getNickName() != null && student.getHeadImg() != null) {
+		if (student.getNickName() != null && exsitHeadImg) {
 			re = fillDao.fillStudent(student);
 			return re;
-		} else if (student.getHeadImg() != null) {
+		} else if (student.getHeadImg() == null &&exsitHeadImg) {
 			//如果已经上传了头像,就只随机分配一个昵称
 			student.setNickName(nickName);
 			re = fillDao.fillStudent(student);
 			return re;
-		} else if (student.getNickName() != null) {
+		} else if (student.getNickName() != null && !exsitHeadImg) {
 			//如果已经输入了昵称,就只随机分配一个头像
 			student.setHeadImg(headImg);
 			re = fillDao.fillStudent(student);

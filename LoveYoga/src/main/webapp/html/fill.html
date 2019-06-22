@@ -1,12 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="/assets/layui/css/layui.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>爱上瑜伽管理系统</title>
+  <link rel="stylesheet" href="/assets/layui/css/layui.css">
 </head>
 <body class="layui-layout-body">
-<form class="layui-form" action="" enctype="multipart/form-data">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">爱上瑜伽后台管理系统</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item"><a href="">商品管理</a></li>
+      <li class="layui-nav-item"><a href="">用户</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+    </ul>
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+          贤心
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">退了</a></li>
+    </ul>
+  </div>
+  
+  <div class="layui-side" style="padding-left: 70px;padding-top: 30px;padding-right: 20px;background-color: #F2F2F2;">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test" >
+        <li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">所有商品</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">列表一</a></dd>
+            <dd><a href="javascript:;">列表二</a></dd>
+            <dd><a href="javascript:;">列表三</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">解决方案</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">列表一</a></dd>
+            <dd><a href="javascript:;">列表二</a></dd>
+            <dd><a href="">超链接</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item"><a href="">云市场</a></li>
+        <li class="layui-nav-item"><a href="">发布商品</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="layui-body layui-card " style="padding-top: 30px; padding-left: 110px;padding-right: 100px;background-color: #F2F2F2;">
+	  <div class="layui-card">
+    <form class="layui-form layui-form-pane" action="" enctype="multipart/form-data">
+    
+<div class="layui-tab layui-tab-card" lay-filter="docDemoTabBrief">
+  <ul class="layui-tab-title">
+      <li><a href="">基本信息填写</a></li>
+  	  <li><a href="">上传头像</a></li>
+  	  <li><a href="">密码修改</a></li>
+  </ul>
+
+</div>  
   <div class="layui-form-item">
     <label class="layui-form-label">权限设置</label>
     <div class="layui-input-block">
@@ -15,15 +86,19 @@
       <input type="radio" name="authority" value="2" title="全部可见" checked>
     </div>
   </div>
+  <div class="layui-container">
   <div class="layui-form-item">
     <label class="layui-form-label">昵称</label>
     <div class="layui-input-block" style="width: 120px;">
       <input type="text" name="nickName" required  lay-verify="required" placeholder="请输入昵称" autocomplete="off" class="layui-input">
     </div>
   </div> 
+  <div class="layui-form-item">
   <button type="button" class="layui-btn" id="headImg">
- 	 <i class="layui-icon">&#xe67c;</i>上传图片
+ 	 <i class="layui-icon">&#xe67c;</i>上传头像
   </button>
+  </div>
+  </div>
   <div class="layui-form-item">
     <label class="layui-form-label">课时费</label>
     <div class="layui-input-block" style="width: 150px;">
@@ -92,7 +167,15 @@
     </div>
   </div>
 </form>
-</body>
+</div>
+  </div>
+  
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 爱上瑜伽
+  </div>
+</div>
 <script type="text/javascript" src="/assets/layui/layui.js"></script>
 <script type="text/javascript" src="/assets/js/fillInfo/fill.js"></script>
+</body>
 </html>
