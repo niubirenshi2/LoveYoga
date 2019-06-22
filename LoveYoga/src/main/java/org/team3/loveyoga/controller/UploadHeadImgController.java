@@ -5,11 +5,11 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.team3.loveyoga.pojo.Coach;
-import org.team3.loveyoga.pojo.Student;
+import org.springframework.web.multipart.MultipartFile;
+
 import org.team3.loveyoga.service.UploadService;
 
 @Controller
@@ -38,17 +38,27 @@ public class UploadHeadImgController {
 	 */
 	@RequestMapping(value = "/student")
 	@ResponseBody
-	public boolean  uploadStudentHeadImg(@RequestBody Student student,HttpServletRequest request) {		
-		System.out.println("开始上传学员头像！"+student);
+	public boolean  uploadStudentHeadImg(@RequestParam(value = "studentHeadImg") MultipartFile studentHeadImg,HttpServletRequest request) {		
+		System.out.println("开始上传学员头像！"+studentHeadImg);
 		boolean result = false;
-		result = uploadService.uploadStudentImg(student);
+		//获取登陆账户的信息
 		HttpSession session = request.getSession();
 		Object oUid = session.getAttribute("uid");
 		if (oUid == null) {
 			return false;
 		}
 		Integer uid = (Integer) oUid;
-		student.setUserID(uid);
+		//获取前台传来的文件并保存为新文件存入到数据库中
+		//获取文件名
+		String fileName = studentHeadImg.getOriginalFilename();
+		//获取保存文件的路径
+		String path = request.getServletContext().getRealPath("");
+		//当前项目根路径
+		
+		
+		
+		//插入数据库
+		result = uploadService.uploadStudentImg(studentHeadImg,uid);
 		return result;		
 	}
 	
@@ -60,17 +70,16 @@ public class UploadHeadImgController {
 	 */
 	@RequestMapping(value = "/upload")
 	@ResponseBody
-	public boolean  uploadCoachHeadImg(@RequestBody Coach coach,HttpServletRequest request) {		
-		System.out.println("开始上传教练头像！"+coach);
+	public boolean  uploadCoachHeadImg(@RequestParam(value = "coachHeadImg") MultipartFile coachHeadImg,HttpServletRequest request) {		
+		System.out.println("开始上传教练头像！"+coachHeadImg);
 		boolean result = false;
-		result = uploadService.uploadCoachImg(coach);
 		HttpSession session = request.getSession();
 		Object oUid = session.getAttribute("uid");
 		if (oUid == null) {
 			return false;
 		}
 		Integer uid = (Integer) oUid;
-		coach.setUid(uid);
+		result = uploadService.uploadCoachImg(coachHeadImg,uid);
 		return result;		
 	}
 }

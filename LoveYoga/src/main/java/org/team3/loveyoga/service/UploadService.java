@@ -1,12 +1,13 @@
 package org.team3.loveyoga.service;
 
-import org.team3.loveyoga.pojo.Coach;
-import org.team3.loveyoga.pojo.Student;
+import org.springframework.web.multipart.MultipartFile;
+
 
 public interface UploadService {
 
-	boolean uploadStudentImg(Student student);
 
-	boolean uploadCoachImg(Coach coach);
+	boolean uploadCoachImg(MultipartFile coachHeadImg, Integer uid);
+
+	boolean uploadStudentImg(MultipartFile studentHeadImg, Integer uid);
 
 }
