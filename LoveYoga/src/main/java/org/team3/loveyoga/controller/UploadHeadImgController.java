@@ -12,6 +12,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import org.team3.loveyoga.service.UploadService;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
 @Controller
 @RequestMapping(value = "/upload")
 public class UploadHeadImgController {
@@ -32,13 +36,13 @@ public class UploadHeadImgController {
 
 	/**
 	 * 上传学员的头像
-	 * @param student
+	 * @param studentHeadImg
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping(value = "/student")
 	@ResponseBody
-	public boolean  uploadStudentHeadImg(@RequestParam(value = "studentHeadImg") MultipartFile studentHeadImg,HttpServletRequest request) {		
+	public boolean  uploadStudentHeadImg(@RequestParam(value = "studentHeadImg") MultipartFile studentHeadImg,HttpServletRequest request) throws IOException {
 		System.out.println("开始上传学员头像！"+studentHeadImg);
 		boolean result = false;
 		//获取登陆账户的信息
@@ -54,8 +58,24 @@ public class UploadHeadImgController {
 		//获取保存文件的路径
 		String path = request.getServletContext().getRealPath("");
 		//当前项目根路径
-		
-		
+		File currentPjo = new File(path);
+		//获取上一级目录
+		File webapps = currentPjo.getParentFile();
+		//获取保存文件的文件夹
+		File upload = new File(webapps,"upload");
+		//判断文件夹是否存在
+		if (!upload.exists()){
+			upload.mkdirs();
+		}
+		//获取新文件名
+		String newFileName = UUID.randomUUID().toString()+fileName.substring(fileName.lastIndexOf("."));
+		//获取新文件的路径
+		String newFilePath = upload.getAbsoluteFile()+File.separator+newFileName;
+		//得到新文件的file的对象
+		File newFile = new File(newFileName);
+		//保存到本地
+		studentHeadImg.transferTo(newFile);
+		System.out.println(newFileName);
 		
 		//插入数据库
 		result = uploadService.uploadStudentImg(studentHeadImg,uid);
@@ -64,7 +84,7 @@ public class UploadHeadImgController {
 	
 	/**
 	 * 上传教练的头像
-	 * @param coach
+	 * @param coachHeadImg
 	 * @param request
 	 * @return
 	 */
