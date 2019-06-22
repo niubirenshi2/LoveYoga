@@ -1,12 +1,11 @@
 package org.team3.loveyoga.Dao;
 
-import org.team3.loveyoga.pojo.Coach;
-import org.team3.loveyoga.pojo.Student;
+import org.springframework.web.multipart.MultipartFile;
 
 public interface UploadDao {
 
-	boolean uploadStudentImg(Student student);
+	boolean uploadCoachImg(MultipartFile coachHeadImg, Integer uid);
 
-	boolean uploadCoachImg(Coach coach);
+	boolean uploadStudentImg(MultipartFile studentHeadImg, Integer uid);
 
 }
