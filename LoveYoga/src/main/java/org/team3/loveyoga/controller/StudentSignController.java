@@ -5,12 +5,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.team3.loveyoga.pojo.Coach;
 import org.team3.loveyoga.pojo.Message;
 import org.team3.loveyoga.pojo.OrderList;
@@ -19,7 +19,13 @@ import org.team3.loveyoga.service.CoachService;
 import org.team3.loveyoga.service.MessageService;
 import org.team3.loveyoga.service.OrderListService;
 import org.team3.loveyoga.service.StudentService;
-
+/**
+ * 学员向教练发起签约申请，点击教练-约私教，获得教练ID，判断学员余额？教练课时费
+ * 余额足够，向教练发送申请通知（message表-createTime），生成订单请求（orderlist表-requestTime）
+ * 重复发送申请，再次发送申请通知，同时更新订单请求的requestTime
+ * @author 14797
+ *
+ */
 @Controller
 @RequestMapping("/studentSign")
 public class StudentSignController {
@@ -65,10 +71,10 @@ public class StudentSignController {
 		this.studentService = studentService;
 	}
 
-	//向教练发起签约请求
+	//向教练发起签约请求(前端传coachID）
 	@RequestMapping("/sendRequest")
-	public String requestCoach(HttpServletRequest request,Integer couchID){
-		HttpSession session = request.getSession();
+	@ResponseBody
+	public String requestCoach(HttpSession session,Integer couchID){
 		OrderList orderList = new OrderList();
 		Message message = new Message();
 		//从session中取出当前登录学员的uid
@@ -123,4 +129,93 @@ public class StudentSignController {
 		messageService.sendMessageToCoach(message);
 		return "再次向教练发起签约申请";
 	}
+	
+	//教练点击同意学员签约申请，从前端获得message对象
+	@RequestMapping("/coachAcceptSign")
+	@ResponseBody
+	public String acceptSign(Message message,ServletContext application,HttpSession session){
+		
+		
+		
+		
+		//获得学员编号(学员表）
+//		int studentID = message.getStudentID();
+		//获得教练编号（用户表）
+//		int coachID = (int) session.getAttribute("yu_id");
+		//模拟
+		int studentID = 1;
+		int coachID = 2;
+		//获得学员、教练对象
+		Coach coach = coachService.findCoachByUid(coachID);
+		Student student = studentService.findStudentByStudentID(studentID);
+		//通过学员、教练编号查寻签约记录
+		OrderList orderList = new OrderList();
+		orderList.setCoachID(coachID);
+		orderList.setStudentID(studentID);
+		orderList = orderListService.findSignRequestBySidAndCid(orderList);
+		//判断请求是否过期,如果过期，提示该申请过期，请查看最新申请
+		if(!message.getCreateTime().equals(orderList.getRequestTime())){
+			System.out.println("该申请过期，请查看最新申请");
+			//删除该条message
+			return "该申请过期，请查看最新申请";
+		}
+		//若请求没过期，生成订单号，订单创建时间，同时给学员发送通知消息
+		Date createTime = new Date();
+		String orderNumber ="" + createTime.getTime() + studentID + coachID ;
+		//存到application中
+		application.setAttribute("orderNumber", orderNumber);
+		
+		orderList.setCreateTime(createTime);
+		orderList.setOrderNumber(orderNumber);
+		//生成订单号，订单创建时间
+		orderListService.coachAcceptSign(orderList);
+		//给学员发送通知
+		message.setForm("教练" + coach.getNickName() + "同意了您的申请，您可以前往场馆找教练上课啦！" );
+		message.setCreateTime(new Date());
+		messageService.sendMessageToStudent(message);
+		
+		return "您接受了学员的申请";
+	}
+	
+	//教练拒绝学员申请
+	@RequestMapping("/coachRefuseSign")
+	@ResponseBody
+	public String refuseSign(Message message,ServletContext application,HttpSession session){
+		
+		
+		
+		
+		//获得学员编号(学员表）
+//		int studentID = message.getStudentID();
+		//获得教练编号（用户表）
+//		int coachID = (int) session.getAttribute("yu_id");
+		//模拟
+		int studentID = 1;
+		int coachID = 2;
+		//获得学员、教练对象
+		Coach coach = coachService.findCoachByUid(coachID);
+		Student student = studentService.findStudentByStudentID(studentID);
+		//通过学员、教练编号查寻签约记录
+		OrderList orderList = new OrderList();
+		orderList.setCoachID(coachID);
+		orderList.setStudentID(studentID);
+		orderList = orderListService.findSignRequestBySidAndCid(orderList);
+		//判断请求是否过期,如果过期，提示该申请过期，请查看最新申请
+		if(!message.getCreateTime().equals(orderList.getRequestTime())){
+			System.out.println("该申请过期，请查看最新申请");
+			//删除该条message
+			return "该申请过期，请查看最新申请";
+		}
+		//若请求没过期，作废签约申请，同时给学员发送通知消息
+		//作废签约申请
+		orderListService.coachRefuseSign(orderList);
+		//给学员发送通知
+		message.setForm("教练" + coach.getNickName() + "拒绝了您的申请，您可以查看一下其他教练哦" );
+		message.setCreateTime(new Date());
+		messageService.sendMessageToStudent(message);
+		
+		return "您拒绝了学员的申请";
+	}
+	
+	
 }

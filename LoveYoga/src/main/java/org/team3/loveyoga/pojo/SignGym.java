@@ -3,9 +3,9 @@ package org.team3.loveyoga.pojo;
 public class SignGym {
     private Integer id;
 
-    private Integer coachid;
+    private Integer coachID;
 
-    private Integer gymid;
+    private Integer gymID;
 
     private Integer flag;
 
@@ -17,23 +17,23 @@ public class SignGym {
         this.id = id;
     }
 
-    public Integer getCoachid() {
-        return coachid;
-    }
+    public Integer getCoachID() {
+		return coachID;
+	}
 
-    public void setCoachid(Integer coachid) {
-        this.coachid = coachid;
-    }
+	public void setCoachID(Integer coachID) {
+		this.coachID = coachID;
+	}
 
-    public Integer getGymid() {
-        return gymid;
-    }
+	public Integer getGymID() {
+		return gymID;
+	}
 
-    public void setGymid(Integer gymid) {
-        this.gymid = gymid;
-    }
+	public void setGymID(Integer gymID) {
+		this.gymID = gymID;
+	}
 
-    public Integer getFlag() {
+	public Integer getFlag() {
         return flag;
     }
 

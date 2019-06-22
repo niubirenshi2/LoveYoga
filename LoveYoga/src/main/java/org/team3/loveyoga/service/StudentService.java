@@ -6,4 +6,6 @@ public interface StudentService {
 	
 	//通过uid查找学员
 	public Student findStudentByUid(int userID);
+	//通过学员编号查询学员信息
+	public Student findStudentByStudentID(int studentID);
 }

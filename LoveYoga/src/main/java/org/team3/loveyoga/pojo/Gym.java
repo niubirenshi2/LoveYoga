@@ -5,11 +5,11 @@ import java.math.BigDecimal;
 public class Gym {
     private Integer id;
 
-    private String gymname;
+    private String gymName;
 
     private String telphone;
 
-    private String qq;
+    private String QQ;
 
     private String img;
 
@@ -35,14 +35,6 @@ public class Gym {
         this.id = id;
     }
 
-    public String getGymname() {
-        return gymname;
-    }
-
-    public void setGymname(String gymname) {
-        this.gymname = gymname;
-    }
-
     public String getTelphone() {
         return telphone;
     }
@@ -51,15 +43,23 @@ public class Gym {
         this.telphone = telphone;
     }
 
-    public String getQq() {
-        return qq;
-    }
+    public String getGymName() {
+		return gymName;
+	}
 
-    public void setQq(String qq) {
-        this.qq = qq;
-    }
+	public void setGymName(String gymName) {
+		this.gymName = gymName;
+	}
 
-    public String getImg() {
+	public String getQQ() {
+		return QQ;
+	}
+
+	public void setQQ(String qQ) {
+		QQ = qQ;
+	}
+
+	public String getImg() {
         return img;
     }
 

@@ -30,5 +30,11 @@ public class StudentServiceImpl implements StudentService {
 		return studentDao.findStudentByUid(userID);
 	}
 
+	@Override
+	public Student findStudentByStudentID(int studentID) {
+		// TODO Auto-generated method stub
+		return studentDao.findStudentByStudentID(studentID);
+	}
+
 
 }

@@ -33,5 +33,14 @@ public class OrderListServiceImpl implements OrderListService {
 	public void reSendSignRequestToCoach(OrderList orderList) {
 		orderListDao.reSendSignRequestToCoach(orderList);
 	}
+	//教练同意签约申请
+	@Override
+	public void coachAcceptSign(OrderList orderList) {
+		orderListDao.coachAcceptSign(orderList);
+	}
+	@Override
+	public void coachRefuseSign(OrderList orderList) {
+		orderListDao.coachRefuseSign(orderList);
+}
 
 }

@@ -14,10 +14,21 @@ public class Message {
     private Date createTime;
 
     private Integer flag;
+    
+    private Integer state;
 
     private String message;
 
-    public Integer getId() {
+    
+    public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
+	}
+
+	public Integer getId() {
         return id;
     }
 

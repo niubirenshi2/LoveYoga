@@ -1,5 +1,6 @@
 package org.team3.loveyoga.service;
 
+import org.apache.ibatis.annotations.Update;
 import org.team3.loveyoga.dao.OrderListDao;
 import org.team3.loveyoga.pojo.OrderList;
 
@@ -13,4 +14,10 @@ public interface OrderListService {
 	
 	//重复向教练发起签约申请
 	public void reSendSignRequestToCoach(OrderList orderList);
+	
+	//教练同意签约申请
+	public void coachAcceptSign(OrderList orderList);
+	
+	//教练拒绝签约申请
+	public void coachRefuseSign(OrderList orderList);
 }

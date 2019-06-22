@@ -23,5 +23,9 @@ public class MessageServiceImpl implements MessageService {
 	public void sendMessageToCoach(Message message) {
 		messageDao.sendMessageToCoach(message);
 	}
+	@Override
+	public void sendMessageToStudent(Message message) {
+		messageDao.sendMessageToStudent(message);
+	}
 
 }
