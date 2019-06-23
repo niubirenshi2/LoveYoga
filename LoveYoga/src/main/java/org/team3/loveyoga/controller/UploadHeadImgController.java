@@ -6,10 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import org.team3.loveyoga.service.UploadService;
@@ -43,18 +40,18 @@ public class UploadHeadImgController {
 	 * @param request
 	 * @return
 	 */
-	@GetMapping(value = "/student")
+	@RequestMapping(value = "/student")
 	@ResponseBody
 	public String  uploadStudentHeadImg(@RequestParam("file") MultipartFile studentHeadImg,HttpServletRequest request) throws IOException {
 		System.out.println("开始上传学员头像！"+studentHeadImg);
 		String result = "上传失败";
 		//获取登陆账户的信息
-		HttpSession session = request.getSession();
-		Object oUid = session.getAttribute("uid");
-		if (oUid == null) {
-			return null;
-		}
-		Integer uid = (Integer) oUid;
+//		HttpSession session = request.getSession();
+//		Object oUid = session.getAttribute("uid");
+//		if (oUid == null) {
+//			return null;
+//		}
+//		Integer uid = (Integer) oUid;
 		//获取前台传来的文件并保存为新文件存入到数据库中
 		//获取文件名
 		String fileName = studentHeadImg.getOriginalFilename();

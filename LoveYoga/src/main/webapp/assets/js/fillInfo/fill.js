@@ -10,7 +10,6 @@ layui.use(['form', 'layedit', 'laydate','upload','element'], function(){
     elem: '#headImg' //绑定元素
     ,url: '/upload/student' //上传接口
     ,accept: 'file',auto: false
-      ,method:'post'
     ,bindAction: '#headImg'
     ,done: function(res){
         layer.alert("上传头像成功！");
