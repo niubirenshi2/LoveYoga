@@ -4,7 +4,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,6 +20,7 @@ import java.util.UUID;
 
 @Controller
 @RequestMapping(value = "/upload")
+@Scope("prototype")
 public class UploadHeadImgController {
 
 	@Autowired
@@ -40,16 +43,16 @@ public class UploadHeadImgController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = "/student")
+	@GetMapping(value = "/student")
 	@ResponseBody
-	public boolean  uploadStudentHeadImg(@RequestParam(value = "studentHeadImg") MultipartFile studentHeadImg,HttpServletRequest request) throws IOException {
+	public String  uploadStudentHeadImg(@RequestParam("file") MultipartFile studentHeadImg,HttpServletRequest request) throws IOException {
 		System.out.println("开始上传学员头像！"+studentHeadImg);
-		boolean result = false;
+		String result = "上传失败";
 		//获取登陆账户的信息
 		HttpSession session = request.getSession();
 		Object oUid = session.getAttribute("uid");
 		if (oUid == null) {
-			return false;
+			return null;
 		}
 		Integer uid = (Integer) oUid;
 		//获取前台传来的文件并保存为新文件存入到数据库中
@@ -76,10 +79,18 @@ public class UploadHeadImgController {
 		//保存到本地
 		studentHeadImg.transferTo(newFile);
 		System.out.println(newFileName);
-		
-		//插入数据库
-		result = uploadService.uploadStudentImg(studentHeadImg,uid);
-		return result;		
+
+		//数据库存储的url
+		String url = newFileName+newFile;
+
+		System.out.println("生成的路径"+url);
+
+		String rappendix = "upload/" + fileName;
+
+		String str = "{\"code\": 0,\"msg\": \"\",\"data\": {\"src\":\"" + rappendix + "\"}}";
+		// 插入数据库
+//		result = uploadService.uploadStudentImg(studentHeadImg,uid);
+		return str;
 	}
 	
 	/**
