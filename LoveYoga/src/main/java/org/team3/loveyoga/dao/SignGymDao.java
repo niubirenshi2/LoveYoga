@@ -1,6 +1,7 @@
 package org.team3.loveyoga.dao;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 import org.team3.loveyoga.pojo.SignGym;
 
@@ -13,4 +14,13 @@ public interface SignGymDao {
 	//场馆同意教练签约申请
 	@Update("update signgym set flag=1 where gymID=#{gymID} and coachID=#{coachID} and flag=0")
 	public void acceptCoachSign(SignGym signGym);
+	
+	//查询是否发送申请
+	@Select("select * from signgym where coachID=#{coachID} and gymID=#{gymID} and flag=0")
+	public SignGym findRequest(SignGym signGym);
+	
+	//查询是否签约
+	@Select("select * from signgym where coachID=#{coachID} and gymID=#{gymID} and flag=1")
+	public SignGym findSign(SignGym signGym);
+	
 }

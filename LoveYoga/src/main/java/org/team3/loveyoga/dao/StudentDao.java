@@ -9,6 +9,6 @@ public interface StudentDao {
 	public Student findStudentByUid(int userID);
 	
 	//通过学员编号查询学员信息
-	@Select("select * from student where studentID=#{studentID}")
-	public Student findStudentByStudentID(int studentID);
+	@Select("select * from student where id=#{id}")
+	public Student findStudentByStudentID(int id);
 }

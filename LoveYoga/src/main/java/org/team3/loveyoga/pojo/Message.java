@@ -8,6 +8,8 @@ public class Message {
     private Integer studentID;
 
     private Integer coachID;
+    
+    private Integer gymID;
 
     private String form;
 
@@ -67,6 +69,14 @@ public class Message {
 
 	public void setStudentID(Integer studentID) {
 		this.studentID = studentID;
+	}
+
+	public Integer getGymID() {
+		return gymID;
+	}
+
+	public void setGymID(Integer gymID) {
+		this.gymID = gymID;
 	}
 
 	public Integer getCoachID() {

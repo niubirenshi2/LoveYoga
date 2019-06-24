@@ -28,5 +28,15 @@ public class SignGymServiceImpl implements SignGymService {
 	public void acceptCoachSign(SignGym signGym) {
 		signGymDao.acceptCoachSign(signGym);
 	}
+	@Override
+	public SignGym findRequest(SignGym signGym) {
+		// TODO Auto-generated method stub
+		return signGymDao.findRequest(signGym);
+	}
+	@Override
+	public SignGym findSign(SignGym signGym) {
+		// TODO Auto-generated method stub
+		return signGymDao.findSign(signGym);
+	}
 
 }
