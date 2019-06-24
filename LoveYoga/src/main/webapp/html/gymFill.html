@@ -4,6 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;}
+	</style>
 <title>信息完善</title>
 <link rel="stylesheet" href="/assets/layui/css/layui.css">
 </head>
@@ -80,25 +84,44 @@
 					<div class="layui-card">
 						<div class="layui-card-header">信息完善</div>
 						<div class="layui-card-body">
-							<div class="layui-tab layui-tab-brief"
-								lay-filter="docDemoTabBrief">
-								<ul class="layui-tab-title">
-									<li class="layui-this"><a href="coachFill.html">基本信息填写</a></li>
-									<li><a href="upload.html">上传头像</a></li>
-									<li><a href="">密码修改</a></li>
-								</ul>
-							</div>
-							<div class="layui-form-item">
-								<div class="layui-upload">
-									<button type="button" class="layui-btn" id="headImg">选择图片</button>
-									<div class="layui-upload-list">
-										<img class="layui-upload-img" id="img"
-											style="width: 130px; height: 150px;">
-										<p id="message"></p>
-									</div>
-									<button type="button" class="layui-btn" id="upload">上传头像</button>
+							<form class="layui-form layui-form-pane">
+
+								<div class="layui-tab layui-tab-brief"
+									lay-filter="docDemoTabBrief">
+									<ul class="layui-tab-title">
+										<li class="layui-this"><a href="gymFill.html">基本信息填写</a></li>
+										<li><a href="">密码修改</a></li>
+									</ul>
 								</div>
-							</div>
+								<div class="layui-form-item" style="padding-top: 20px;">
+									<label class="layui-form-label">地址：</label>
+										<div class="layui-input-block">
+											<button class="layui-btn" id="choose" type="button" >选择地址</button>
+									</div>
+								</div>
+								<div class="layui-form-item" style="padding-top: 20px;">
+									<label class="layui-form-label">场馆名称：</label>
+									<div class="layui-input-block" style="width: 250px;">
+										<input type="text" name="telphone" required
+											lay-verify="required" autocomplete="off" class="layui-input"
+											placeholder="请输入您的场馆名称">
+									</div>
+								</div>
+								<div class="layui-form-item">
+									<label class="layui-form-label">联系电话：</label>
+									<div class="layui-input-block" style="width: 250px;">
+										<input type="text" name="telphone" required
+											lay-verify="required" autocomplete="off" class="layui-input"
+											placeholder="请输入您的手机号码">
+									</div>
+								</div>
+								<div class="layui-form-item">
+									<div class="layui-input-block">
+										<button class="layui-btn" lay-submit lay-filter="coachInfo">立即提交</button>
+										<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -110,6 +133,6 @@
 		</div>
 	</div>
 	<script src="/assets/layui/layui.js"></script>
-	<script type="text/javascript" src="/assets/js/fillInfo/upload.js"></script>
+	<script src="/assets/js/fillInfo/fill.js"></script>
 </body>
 </html>

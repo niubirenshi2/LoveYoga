@@ -1,11 +1,13 @@
 package org.team3.loveyoga.Dao;
 
-import org.springframework.web.multipart.MultipartFile;
+import org.apache.ibatis.annotations.Insert;
 
 public interface UploadDao {
 
-	boolean uploadCoachImg(MultipartFile coachHeadImg, Integer uid);
+	@Insert("insert into student (headImg) values (#{newFilePath}) where uid = (#{uid})")
+	boolean uploadCoachImg(String newFilePath, Integer uid);
 
-	boolean uploadStudentImg(MultipartFile studentHeadImg, Integer uid);
+	@Insert("insert into coach (headImg) values (#{newFilePath}) where uid = (#{uid})")
+	boolean uploadStudentImg(String newFilePath, Integer uid);
 
 }

@@ -40,21 +40,15 @@ public class UploadHeadImgController {
 	 * @param request
 	 * @return
 	 */
-	@RequestMapping(value = "/student")
+	@RequestMapping(value = "/user")
 	@ResponseBody
-	public String  uploadStudentHeadImg(@RequestParam("file") MultipartFile studentHeadImg,HttpServletRequest request) throws IOException {
-		System.out.println("开始上传学员头像！"+studentHeadImg);
-		String result = "上传失败";
-		//获取登陆账户的信息
-//		HttpSession session = request.getSession();
-//		Object oUid = session.getAttribute("uid");
-//		if (oUid == null) {
-//			return null;
-//		}
-//		Integer uid = (Integer) oUid;
+	public String  uploadStudentHeadImg(@RequestParam("file") MultipartFile headImg,HttpServletRequest request) throws IOException {
+		System.out.println("开始上传学员头像！");
+	
 		//获取前台传来的文件并保存为新文件存入到数据库中
 		//获取文件名
-		String fileName = studentHeadImg.getOriginalFilename();
+		String fileName = headImg.getOriginalFilename();
+		System.out.println("获取的文件名："+fileName);
 		//获取保存文件的路径
 		String path = request.getServletContext().getRealPath("");
 		//当前项目根路径
@@ -62,7 +56,7 @@ public class UploadHeadImgController {
 		//获取上一级目录
 		File webapps = currentPjo.getParentFile();
 		//获取保存文件的文件夹
-		File upload = new File(webapps,"upload");
+		File upload = new File(webapps,"/upload");
 		//判断文件夹是否存在
 		if (!upload.exists()){
 			upload.mkdirs();
@@ -74,40 +68,24 @@ public class UploadHeadImgController {
 		//得到新文件的file的对象
 		File newFile = new File(newFileName);
 		//保存到本地
-		studentHeadImg.transferTo(newFile);
-		System.out.println(newFileName);
-
+		headImg.transferTo(newFile);
 		//数据库存储的url
-		String url = newFileName+newFile;
 
-		System.out.println("生成的路径"+url);
+		System.out.println("生成的路径"+newFilePath);
 
 		String rappendix = "upload/" + fileName;
-
-		String str = "{\"code\": 0,\"msg\": \"\",\"data\": {\"src\":\"" + rappendix + "\"}}";
-		// 插入数据库
-//		result = uploadService.uploadStudentImg(studentHeadImg,uid);
-		return str;
-	}
-	
-	/**
-	 * 上传教练的头像
-	 * @param coachHeadImg
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping(value = "/upload")
-	@ResponseBody
-	public boolean  uploadCoachHeadImg(@RequestParam(value = "coachHeadImg") MultipartFile coachHeadImg,HttpServletRequest request) {		
-		System.out.println("开始上传教练头像！"+coachHeadImg);
-		boolean result = false;
+		System.out.println("返回给前端的值"+rappendix);
+		
+		//获取登陆账户的信息
 		HttpSession session = request.getSession();
 		Object oUid = session.getAttribute("uid");
 		if (oUid == null) {
-			return false;
+			return null;
 		}
 		Integer uid = (Integer) oUid;
-		result = uploadService.uploadCoachImg(coachHeadImg,uid);
-		return result;		
-	}
+		// 插入数据库
+		Integer result = uploadService.uploadStudentImg(newFilePath,uid);
+		String str = "{\"code\": "+result+",\"msg\":\"\",\"data\": {\"src\":\"" + rappendix + "\"}}";
+		return str;
+	}	
 }

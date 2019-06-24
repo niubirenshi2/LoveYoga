@@ -1,25 +1,9 @@
-layui.use(['form', 'layedit', 'laydate','upload','element'], function(){
+layui.use(['form', 'layedit', 'laydate','element'], function(){
   var form = layui.form
   ,layer = layui.layer
   ,$ = layui.jquery
-  ,upload = layui.upload
   ,element = layui.element;
-  
-  //执行实例
-  var uploadInst = upload.render({
-    elem: '#headImg' //绑定元素
-    ,url: '/upload/student' //上传接口
-    ,accept: 'file',auto: false
-    ,bindAction: '#headImg'
-    ,done: function(res){
-        layer.alert("上传头像成功！");
-    }
-    ,error: function(){
-      layer.alert("上传头像失败！");
-    }
-  });
 
-  
   //监听提交
   form.on('submit(coachInfo)', function(data){
       $.ajax({
@@ -37,6 +21,17 @@ layui.use(['form', 'layedit', 'laydate','upload','element'], function(){
                   layer.alert('信息提交失败！请稍候重新提交！');
               }
           }
-      })
+      });
   });
+  //调用地图
+  $("#choose").click(function(){
+	  	layer.open({
+	  		  title:"查看地点",
+	  		  type: 2, 
+	  		  area:['450px','400px'],
+	  		  skin:"layui-layer-molv",
+	  		  maxmin:true,
+	  		  content: '/html/addLocation.html'
+	  	  }); 
+	  })
 });
