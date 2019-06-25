@@ -1,5 +1,7 @@
 package org.team3.loveyoga.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.team3.loveyoga.Dao.RoleDao;
@@ -25,7 +27,7 @@ public class UploadServiceImpl implements UploadService{
 	private RoleDao roleDao;
 
 	@Override
-	public Integer uploadStudentImg(String newFilePath, Integer uid) {
+	public Integer uploadHeadImg(String newFilePath, Integer uid) {
 		Integer roleId = roleDao.findRole(uid);
 		Integer result = 0;
 		boolean re = false;
@@ -44,6 +46,14 @@ public class UploadServiceImpl implements UploadService{
 			}
 		}
 		return result;
+	}
+
+	@Override
+	public Integer uploadGymPhotos(List<String> newFilesPath, Integer uid) {
+		for (String newFilePath : newFilesPath) {
+			return uploadDao.uploadGymPhotos(newFilePath,uid);
+		}
+		return 0;
 	}
 
 

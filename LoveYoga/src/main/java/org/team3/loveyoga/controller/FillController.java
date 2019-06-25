@@ -93,5 +93,4 @@ public class FillController {
 		result = fillService.fillGym(gym);
 		return result;		
 	}
-	
 }

@@ -26,7 +26,7 @@ layui.use(['form', 'layedit', 'laydate','element'], function(){
   //调用地图
   $("#choose").click(function(){
 	  	layer.open({
-	  		  title:"查看地点",
+	  		  title:"请添加您的位置",
 	  		  type: 2, 
 	  		  area:['450px','400px'],
 	  		  skin:"layui-layer-molv",

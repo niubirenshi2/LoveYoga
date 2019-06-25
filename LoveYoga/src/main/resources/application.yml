@@ -1,6 +1,7 @@
 spring:
   thymeleaf:
     cache: false
+    mode: LEGACYHTML5
 
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -44,6 +45,6 @@ spring:
 
 mybatis: 
   config-location: classpath:mybatis/mybatis-config.xml
-  type-aliases-package: com.woniuxy.yoga_app.pojo
+  type-aliases-package: org.team3.loveyoga.pojo
 server:
   port: 80

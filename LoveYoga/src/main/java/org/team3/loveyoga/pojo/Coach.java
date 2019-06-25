@@ -14,7 +14,6 @@ public class Coach {
 
     private String nickName;
 
-    private String address;
 
     private BigDecimal price;
 
@@ -37,6 +36,10 @@ public class Coach {
     private String qq;
 
     private BigDecimal balance;
+    
+    private double lng;
+    
+    private double lat;
 
     private Integer flag;
 
@@ -78,14 +81,6 @@ public class Coach {
 
 	public void setNickName(String nickName) {
 		this.nickName = nickName;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
 	}
 
 	public BigDecimal getPrice() {
@@ -176,6 +171,22 @@ public class Coach {
 		this.balance = balance;
 	}
 
+	public double getLng() {
+		return lng;
+	}
+
+	public void setLng(double lng) {
+		this.lng = lng;
+	}
+
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+
 	public Integer getFlag() {
 		return flag;
 	}
@@ -187,11 +198,12 @@ public class Coach {
 	@Override
 	public String toString() {
 		return "Coach [id=" + id + ", uid=" + uid + ", authority=" + authority + ", headImg=" + headImg + ", nickName="
-				+ nickName + ", address=" + address + ", price=" + price + ", freetime=" + freetime + ", acceptState="
-				+ acceptState + ", genre=" + genre + ", telvisible=" + telvisible + ", telphone=" + telphone
-				+ ", courseState=" + courseState + ", persoalTrainer=" + persoalTrainer + ", expectedSalary="
-				+ expectedSalary + ", qq=" + qq + ", balance=" + balance + ", flag=" + flag + "]";
+				+ nickName + ", price=" + price + ", freetime=" + freetime + ", acceptState=" + acceptState + ", genre="
+				+ genre + ", telvisible=" + telvisible + ", telphone=" + telphone + ", courseState=" + courseState
+				+ ", persoalTrainer=" + persoalTrainer + ", expectedSalary=" + expectedSalary + ", qq=" + qq
+				+ ", balance=" + balance + ", lng=" + lng + ", lat=" + lat + ", flag=" + flag + "]";
 	}
 
-  
+    
+ 
 }
