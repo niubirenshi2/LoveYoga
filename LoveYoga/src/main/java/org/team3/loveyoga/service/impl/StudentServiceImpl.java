@@ -4,7 +4,7 @@ package org.team3.loveyoga.service.impl;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.team3.loveyoga.dao.StudentDao;
+import org.team3.loveyoga.Dao.StudentDao;
 import org.team3.loveyoga.pojo.Student;
 import org.team3.loveyoga.service.StudentService;
 

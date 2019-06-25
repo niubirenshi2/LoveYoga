@@ -1,6 +1,7 @@
 package org.team3.loveyoga.controller;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -20,7 +21,7 @@ import org.team3.loveyoga.service.SignGymService;
 @Controller
 @RequestMapping("/coachSign")
 public class CoachSignController {
-	private Map<String, Object> map;
+	private Map<String, Object> map = new HashMap<>();
 	public Map<String, Object> getMap() {
 		return map;
 	}
@@ -60,33 +61,34 @@ public class CoachSignController {
 		this.coachService = coachService;
 	}
 	
-	//从前端获得场馆编号。点击签约场馆，给场馆发送申请（signgym,flag=0)，同时发送消息通知
+	//从前端获得场馆编号。点击签约场馆，给场馆发送申请（signgym,flag=0)，同时发送消息通知（state=2）
 	@RequestMapping("/sendRequest")
 	@ResponseBody
 	public Map<String, Object> requestGym(HttpSession session,Integer gymID){
 		//获得当前登录教练的id 2
 //		int uid = (int) session.getAttribute("yu_id");
 		int uid = 2;
+		//前端获得场馆编号（场馆表）
 		gymID = 1;
 		//获得教练的id，coachID，
 		int coachID = coachService.findCoachByUid(uid).getId();
+		//确定签约双方的编号
 		SignGym signGym = new SignGym();
 		signGym.setCoachID(coachID);
 		signGym.setGymID(gymID);
-		System.out.println(signGym.getCoachID());
-		//判断是否发送过申请
+		//判断是存在签约申请（flag=0）
 		if(signGymService.findRequest(signGym)!=null){
 			map.put("message", "您已经向场馆发送了申请，请耐心等待");
 			return map;
 		}
-		//判断是否签约
+		//判断是否签约（flag=1）
 		if(signGymService.findSign(signGym)!=null){
 			map.put("message", "您已经与场馆签约，请勿重复申请");
 			return map;
 		}
 		//发送签约申请
 		signGymService.sendRequestToGym(signGym);
-		//发送消息通知
+		//发送消息通知（教练申请场馆state=2）
 		Message message = new Message();
 		message.setCreateTime(new Date());
 		message.setCoachID(coachID);
@@ -94,27 +96,65 @@ public class CoachSignController {
 		message.setForm("教练"+coachService.findCoachByUid(uid).getNickName()+"申请成为场馆教练");
 		messageService.sendMessageToGym(message);
 		map.put("message", "您成功向场馆发起签约申请,等待场馆同意");
-		
 		return map;
 	}
 	//教练同意场馆的申请
 	@RequestMapping("/acceptRequest")
 	@ResponseBody
 	public Map<String, Object> acceptSign(HttpSession session,Integer id){
-		//获得当前教练的id
-//				int uid = (int) session.getAttribute("yu_id");
+		//通过前端传来的id获得该条消息
+		Message message = messageService.findMessageById(id);
+		//获得场馆编号（场馆表）
+		int gymID = message.getGymID();
+		//获得当前教练的id（教练表）
+//		int uid = (int) session.getAttribute("yu_id");
 		int uid = 2;
 		int coachID = coachService.findCoachByUid(uid).getId();
-		//获得场馆ID，
-//				int gymID = message.getGymID();
-		int gymID = 3;
+		
+		//将申请插入数据库中（flag=1）
 		SignGym signGym = new SignGym();
 		signGym.setCoachID(coachID);
 		signGym.setGymID(gymID);
 		signGymService.acceptCoachSign(signGym);
-		map.put("message", "您同意了教练的申请");
+		//删除该条消息
+		messageService.deleteMessageById(id);
+		//给场馆发送消息通知（教练同意state=4）
+		message.setCoachID(coachID);
+		message.setGymID(gymID);
+		message.setCreateTime(new Date());
+		message.setForm("教练"+coachService.findCoachByUid(uid).getNickName()+"同意了您的申请");
+		messageService.sendMessagyToGymBycoach(message);
+		map.put("message", "您同意了场馆的申请！");
 		return map;
 	}
 	
-	
+	//教练拒绝场馆的申请
+	@RequestMapping("/refuseRequest")
+	@ResponseBody
+	public Map<String, Object> refuseSign(HttpSession session,Integer id){
+		//通过前端传来的id获得该条消息
+		Message message = messageService.findMessageById(id);
+		//获得场馆编号（场馆表）
+		int gymID = message.getGymID();
+		//获得当前教练的id（用户表）
+//		int uid = (int) session.getAttribute("yu_id");
+		int uid = 2;
+		int coachID = coachService.findCoachByUid(uid).getId();
+		
+		//拒绝申请，更改状态flag=2
+		SignGym signGym = new SignGym();
+		signGym.setCoachID(coachID);
+		signGym.setGymID(gymID);
+		signGymService.refuseCoachSign(signGym);;
+		//删除该条消息
+		messageService.deleteMessageById(id);
+		//给场馆发送消息通知（教练拒绝state=4）
+		message.setCoachID(coachID);
+		message.setGymID(gymID);
+		message.setCreateTime(new Date());
+		message.setForm("教练"+coachService.findCoachByUid(uid).getNickName()+"拒绝了您的申请");
+		messageService.sendMessagyToGymBycoach(message);
+		map.put("message", "您拒绝了场馆的申请！");
+		return map;
+	}
 }

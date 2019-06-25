@@ -3,7 +3,7 @@ package org.team3.loveyoga.service.impl;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.team3.loveyoga.dao.SignGymDao;
+import org.team3.loveyoga.Dao.SignGymDao;
 import org.team3.loveyoga.pojo.SignGym;
 import org.team3.loveyoga.service.SignGymService;
 
@@ -37,6 +37,10 @@ public class SignGymServiceImpl implements SignGymService {
 	public SignGym findSign(SignGym signGym) {
 		// TODO Auto-generated method stub
 		return signGymDao.findSign(signGym);
+	}
+	@Override
+	public void refuseCoachSign(SignGym signGym) {
+		signGymDao.refuseCoachSign(signGym);
 	}
 
 }

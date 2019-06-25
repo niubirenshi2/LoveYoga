@@ -12,10 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.team3.loveyoga.pojo.Coach;
+import org.team3.loveyoga.pojo.Friend;
 import org.team3.loveyoga.pojo.Message;
 import org.team3.loveyoga.pojo.OrderList;
 import org.team3.loveyoga.pojo.Student;
 import org.team3.loveyoga.service.CoachService;
+import org.team3.loveyoga.service.FriendService;
 import org.team3.loveyoga.service.MessageService;
 import org.team3.loveyoga.service.OrderListService;
 import org.team3.loveyoga.service.StudentService;
@@ -45,7 +47,14 @@ public class StudentSignController {
 	private OrderListService orderListService;
 	@Resource
 	private MessageService messageService;
-	
+	@Resource
+	private FriendService friendService;
+	public FriendService getFriendService() {
+		return friendService;
+	}
+	public void setFriendService(FriendService friendService) {
+		this.friendService = friendService;
+	}
 	public CoachService getCoachService() {
 		return coachService;
 	}
@@ -87,48 +96,58 @@ public class StudentSignController {
 		//获得当前用户信息
 		Student student = studentService.findStudentByUid(userID);
 		//获得对应的教练信息
-//		coach = coachService.findCoachByUid(coach.getUid());
 		Coach coach = coachService.findCoachByUid(couchID);
 		//判断用户余额是否足够
 		if(student.getBalance().doubleValue() < coach.getPrice().doubleValue()){
 			map.put("mes", "您的余额不足，请充值");
 			return map;
 		}
-		//学员编号，教练编号
+		//学员编号，教练编号(各自的表)
 		Integer studentID = student.getId();
 		Integer coachID = coach.getId();
-		System.out.println(studentID+"..."+coachID);
 		//确定签约双方的编号
 		orderList.setStudentID(studentID);
 		orderList.setCoachID(coachID);
-		System.out.println(orderList.getStudentID()+"...."+orderList.getCoachID());
 		//确定消息通知中双方的编号
 		message.setStudentID(studentID);
 		message.setCoachID(coachID);
 		//余额足够，向教练发起申请（判断是否有申请,如果有，更新申请时间，再次发送消息通知）
+		//没有签约申请
 		if(orderListService.findSignRequestBySidAndCid(orderList) == null){
 			//申请时间（同通知消息创建时间）
 			Date requestTime = new Date();
 			orderList.setRequestTime(requestTime);
 			orderListService.sendSignRequestToCoach(orderList);
 			//向教练发送消息通知
-			message.setForm("学员"+student.getNickName()+"邀请您成为他的私教");
+			message.setForm("学员"+student.getNickName()+"邀请您成为他的私教，是否同意");
 			message.setCreateTime(requestTime);
 			messageService.sendMessageToCoach(message);
 			map.put("message", "成功向教练发起签约申请");
 			return map;
 		}
-		
+		//教练已经同意申请
+		if(orderListService.findSignRequestBySidAndCid(orderList).getOrderNumber()!=null){
+			map.put("message", "您已经是该教练的学员，请先完成课程");
+			return map;
+		}
+		//有签约申请
 		Date reRequestTime = new Date();
 		orderList.setRequestTime(reRequestTime);
 		orderListService.reSendSignRequestToCoach(orderList);
 		//再次发送消息通知
 		//向教练发送消息通知
-		message.setForm("学员"+student.getNickName()+"邀请您成为他的私教");
+		message.setForm("学员"+student.getNickName()+"邀请您成为他的私教，是否同意");
 		message.setCreateTime(reRequestTime);
 		messageService.sendMessageToCoach(message);
 		map.put("messege", "再次向教练发起签约申请");
 		return map;
+	}
+	//学员确认签约消息(在我的消息页面点击确认，删除该条消息)
+	@RequestMapping("/sureMessage")
+	@ResponseBody
+	public String studentSureSign(Integer id){
+		messageService.deleteMessageById(id);
+		return null;
 	}
 	
 	//教练点击同意学员签约申请，从前端获得message对象
@@ -137,16 +156,12 @@ public class StudentSignController {
 	public Map<String, Object> acceptSign(Integer id, HttpSession session){
 		//查询该条消息记录
 		Message message = messageService.findMessageById(id);
-		System.out.println("消息编号"+message.getId());
-		System.out.println("消息时间"+message.getCreateTime());
-//		//学员编号
+//		//学员编号（学员表）
 		int studentID = message.getStudentID();
 		//获得教练编号（用户表）
 //		int coachID = (int) session.getAttribute("yu_id");
 		//模拟
-//		int studentID = 1;
 		int coachID = 2;
-//		System.out.println(message.getId());
 		//获得教练、学员对象
 		Coach coach = coachService.findCoachByUid(coachID);
 		Student student = studentService.findStudentByStudentID(studentID);
@@ -156,11 +171,8 @@ public class StudentSignController {
 		orderList.setCoachID(message.getCoachID());
 		orderList.setStudentID(studentID);
 		orderList = orderListService.findSignRequestBySidAndCid(orderList);
-		System.out.println("订单时间"+orderList.getRequestTime());
 		//判断请求是否过期,如果过期，提示该申请过期，请查看最新申请
 		if(!message.getCreateTime().equals(orderList.getRequestTime())){
-			System.out.println("该申请过期，请查看最新申请");
-			//删除该条message
 			map.put("message", "该申请过期，请查看最新申请");
 			//删除该条消息通知
 			messageService.deleteMessageById(id);
@@ -169,16 +181,24 @@ public class StudentSignController {
 		//若请求没过期，生成订单号，订单创建时间，同时给学员发送通知消息
 		Date createTime = new Date();
 		String orderNumber ="" + createTime.getTime() + studentID + coachID ;
-		
 		orderList.setCreateTime(createTime);
 		orderList.setOrderNumber(orderNumber);
-		//生成订单号，订单创建时间
+		//生成订单号、订单创建时间
 		orderListService.coachAcceptSign(orderList);
 		//给学员发送通知
-		message.setForm("教练" + coach.getNickName() + "同意了您的申请，您可以前往场馆找教练上课啦！" );
+		message.setForm("教练" + coach.getNickName() + "同意了您的申请，您和对方已成为好友，您可以前往好友列表查看对方联系方式了！" );
 		message.setCreateTime(new Date());
 		messageService.sendMessageToStudent(message);
 		//接受申请后，成为好友
+		Friend friend = new Friend();
+		Date friendTime = new Date();
+		friend.setCreateTime(friendTime);
+		friend.setUserID(coachID);
+		friend.setFriendID(student.getUserID());
+		friendService.makeFriendWithStudent(friend);
+		friend.setUserID(student.getUserID());
+		friend.setFriendID(coachID);
+		friendService.makeFriendWhthCoach(friend);
 		map.put("message", "您接受了学员的申请");
 		//删除该条消息通知
 		messageService.deleteMessageById(id);
@@ -191,12 +211,8 @@ public class StudentSignController {
 	public Map<String, Object> refuseSign(Integer id,HttpSession session){
 		//查询该条消息记录
 		Message message = messageService.findMessageById(id);
-		System.out.println("消息编号"+message.getId());
-		System.out.println("消息时间"+message.getCreateTime());
-//				//学员编号
+//		//学员编号(学员表）
 		int studentID = message.getStudentID();
-		//获得学员编号(学员表）
-//		int studentID = message.getStudentID();
 		//获得教练编号（用户表）
 //		int coachID = (int) session.getAttribute("yu_id");
 		//模拟
@@ -211,7 +227,6 @@ public class StudentSignController {
 		orderList = orderListService.findSignRequestBySidAndCid(orderList);
 		//判断请求是否过期,如果过期，提示该申请过期，请查看最新申请
 		if(!message.getCreateTime().equals(orderList.getRequestTime())){
-			System.out.println("该申请过期，请查看最新申请");
 			map.put("message", "该申请过期，请查看最新申请");
 			//删除该条message
 			messageService.deleteMessageById(id);

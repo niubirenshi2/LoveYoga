@@ -1,4 +1,4 @@
-package org.team3.loveyoga.dao;
+package org.team3.loveyoga.Dao;
 
 
 

@@ -1,4 +1,4 @@
-package org.team3.loveyoga.dao;
+package org.team3.loveyoga.Dao;
 
 
 import org.apache.ibatis.annotations.Insert;
@@ -11,7 +11,7 @@ public interface OrderListDao {
 	@Insert("insert into orderlist(studentID,coachID,requestTime) values(#{studentID},#{coachID},#{requestTime})")
 	public void sendSignRequestToCoach(OrderList orderList);
 	
-	//查询签约记录(学员对教练的签约申请，以便重复申请)
+	//查询签约记录(学员对教练的签约申请，以便重复申请或者避免对处于签约状态的教练重复申请)
 	@Select("select * from orderlist where studentID=#{studentID} and coachID=#{coachID} and state=0 and flag=0")
 	public OrderList findSignRequestBySidAndCid(OrderList orderList);
 	

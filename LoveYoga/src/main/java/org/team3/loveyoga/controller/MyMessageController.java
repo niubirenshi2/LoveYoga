@@ -52,7 +52,7 @@ public class MyMessageController {
 		this.studentService = studentService;
 	}
 	
-	//学员查看教练发送的消息通知
+	//学员查看消息通知
 	@RequestMapping("/studentMessage")
 	@ResponseBody
 	public List<Message> studentMessage(HttpSession session){
@@ -66,7 +66,8 @@ public class MyMessageController {
 		
 		return messageService.showStudentMessage(studentID);
 	}
-	//教练查看学员发送的消息通知
+	
+	//教练查看消息通知
 	@RequestMapping("/coachMessage")
 	@ResponseBody
 	public List<Message> coachMessage(HttpSession session){
@@ -79,16 +80,17 @@ public class MyMessageController {
 		
 		return messageService.showCoachMessage(coachID);
 	}
-	//场馆查看教练发送的消息通知
+	//场馆查看消息通知
 	@RequestMapping("/gymMessage")
-	public String gymMessage(HttpSession session){
+	@ResponseBody
+	public List<Message> gymMessage(HttpSession session){
 		//从session中取出当前登录用户的id
 //		int uid = (int) session.getAttribute("yu_id");
 		int uid = 3;
 		//获得消息表中的场馆ID，
 		int gymID = gymService.findGymByUid(uid).getId();
 		//查看所有消息通知
-		messageService.showGymMessage(gymID);
-		return "查看所有消息通知";
+		
+		return messageService.showGymMessage(gymID);
 	}
 }

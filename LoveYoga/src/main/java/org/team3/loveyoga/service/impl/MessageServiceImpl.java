@@ -5,7 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.team3.loveyoga.dao.MessageDao;
+import org.team3.loveyoga.Dao.MessageDao;
 import org.team3.loveyoga.pojo.Message;
 import org.team3.loveyoga.service.MessageService;
 
@@ -61,6 +61,14 @@ public class MessageServiceImpl implements MessageService {
 	@Override
 	public void deleteMessageById(int id) {
 		messageDao.deleteMessageById(id);
+	}
+	@Override
+	public void sendMessagyToGymBycoach(Message message) {
+		messageDao.sendMessagyToGymBycoach(message);
+	}
+	@Override
+	public void sendMessagyToCoachByGym2(Message message) {
+		messageDao.sendMessagyToCoachByGym2(message);
 	}
 
 }

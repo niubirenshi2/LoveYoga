@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.rog"
+				xmlns:th="http://www.pollix.at/thymeleaf/shiro">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -57,11 +58,6 @@
         </li>
         <li class="layui-nav-item">
           <a href="javascript:;">教练查看</a>
-          <!-- <dl class="layui-nav-child">
-            <dd><a href="javascript:;">列表一</a></dd>
-            <dd><a href="javascript:;">列表二</a></dd>
-            <dd><a href="">超链接</a></dd>
-          </dl> -->
         </li>
         <li class="layui-nav-item"><a href="">场馆查看</a></li>
         <li class="layui-nav-item"><a href="">主页图文</a></li>
@@ -76,9 +72,6 @@
     	<table class="layui-table">
 		  <colgroup>
 		    <col width="30">
-		    <col width="30">
-		    <col width="30">
-		    <col width="30">
 		    <col width="200">
 		    <col width="200">
 		    <col width="150">
@@ -86,10 +79,7 @@
 		  </colgroup>
 		  <thead>
 		    <tr>
-		      	<th>ID</th>
-	   			<th>学员编号</th>
-	   			<th>教练编号</th>
-	   			<th>场馆编号</th>
+		      	<th>编号</th>
 	   			<th>留言</th>
 	   			<th>通知</th>
 	   			<th>时间</th>
@@ -97,14 +87,13 @@
 		    </tr> 
 		  </thead>
 		  <!-- 学员消息内容 -->
-		  <!-- <tbody id="studentMessage">
-		  
-		  </tbody> -->
+		  <!-- <tbody id="studentMessage"></tbody> -->
 		  
 		  <!-- 教练消息内容 -->
-		  <tbody id="coachMessage">
+		  <tbody id="coachMessage"></tbody>
 		  
-		  </tbody>
+		  <!-- 场馆消息内容 -->
+		  <!-- <tbody id="gymMessage"></tbody> -->
 </table>
     </div>
   </div>
@@ -117,7 +106,7 @@
 <script src="/assets/js/jquery.min.js"></script>
 <script src="/assets/layui/layui.js"></script>
 <script src="/assets/js/myMessage.js"></script>
-<script src="/assets/js/studentSign.js"></script>
+<script src="/assets/js/sign.js"></script>
 
 <script>
 //JavaScript代码区域

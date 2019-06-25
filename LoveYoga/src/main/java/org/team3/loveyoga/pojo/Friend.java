@@ -5,17 +5,17 @@ import java.util.Date;
 public class Friend {
     private Integer id;
 
-    private Integer userid;
+    private Integer userID;
 
-    private Integer friendid;
+    private Integer friendID;
 
     private Integer state;
 
-    private Integer groupstate;
+    private Integer groupState;
 
-    private Date createtime;
+    private Date createTime;
 
-    private Date delectetime;
+    private Date delecteTime;
 
     private Integer flag;
 
@@ -27,21 +27,6 @@ public class Friend {
         this.id = id;
     }
 
-    public Integer getUserid() {
-        return userid;
-    }
-
-    public void setUserid(Integer userid) {
-        this.userid = userid;
-    }
-
-    public Integer getFriendid() {
-        return friendid;
-    }
-
-    public void setFriendid(Integer friendid) {
-        this.friendid = friendid;
-    }
 
     public Integer getState() {
         return state;
@@ -51,31 +36,47 @@ public class Friend {
         this.state = state;
     }
 
-    public Integer getGroupstate() {
-        return groupstate;
-    }
+    public Integer getUserID() {
+		return userID;
+	}
 
-    public void setGroupstate(Integer groupstate) {
-        this.groupstate = groupstate;
-    }
+	public void setUserID(Integer userID) {
+		this.userID = userID;
+	}
 
-    public Date getCreatetime() {
-        return createtime;
-    }
+	public Integer getFriendID() {
+		return friendID;
+	}
 
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
-    }
+	public void setFriendID(Integer friendID) {
+		this.friendID = friendID;
+	}
 
-    public Date getDelectetime() {
-        return delectetime;
-    }
+	public Integer getGroupState() {
+		return groupState;
+	}
 
-    public void setDelectetime(Date delectetime) {
-        this.delectetime = delectetime;
-    }
+	public void setGroupState(Integer groupState) {
+		this.groupState = groupState;
+	}
 
-    public Integer getFlag() {
+	public Date getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Date createTime) {
+		this.createTime = createTime;
+	}
+
+	public Date getDelecteTime() {
+		return delecteTime;
+	}
+
+	public void setDelecteTime(Date delecteTime) {
+		this.delecteTime = delecteTime;
+	}
+
+	public Integer getFlag() {
         return flag;
     }
 

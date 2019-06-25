@@ -3,7 +3,7 @@ package org.team3.loveyoga.service.impl;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
-import org.team3.loveyoga.dao.GymDao;
+import org.team3.loveyoga.Dao.GymDao;
 import org.team3.loveyoga.pojo.Gym;
 import org.team3.loveyoga.service.GymService;
 
