@@ -2,17 +2,14 @@ package org.team3.loveyoga.pojo;
 
 import java.math.BigDecimal;
 
-public class Coach {
-    private Integer id;
+public class UserInfo {
 
-    private Integer uid;
 
     private String authority;
 
     private String headImg;
 
     private String nickName;
-
 
     private BigDecimal price;
 
@@ -33,30 +30,6 @@ public class Coach {
     private BigDecimal expectedSalary;
 
     private String qq;
-
-    private BigDecimal balance;
-    
-    private double lng;
-    
-    private double lat;
-
-    private Integer flag;
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public Integer getUid() {
-		return uid;
-	}
-
-	public void setUid(Integer uid) {
-		this.uid = uid;
-	}
 
 	public String getAuthority() {
 		return authority;
@@ -161,51 +134,6 @@ public class Coach {
 	public void setQq(String qq) {
 		this.qq = qq;
 	}
-
-	public BigDecimal getBalance() {
-		return balance;
-	}
-
-	public void setBalance(BigDecimal balance) {
-		this.balance = balance;
-	}
-
-	public double getLng() {
-		return lng;
-	}
-
-	public void setLng(double lng) {
-		this.lng = lng;
-	}
-
-	public double getLat() {
-		return lat;
-	}
-
-	public void setLat(double lat) {
-		this.lat = lat;
-	}
-
-	public Integer getFlag() {
-		return flag;
-	}
-
-	public void setFlag(Integer flag) {
-		this.flag = flag;
-	}
-
-	@Override
-	public String toString() {
-		return "Coach [id=" + id + ", uid=" + uid + ", authority=" + authority + ", headImg=" + headImg + ", nickName="
-				+ nickName + ", price=" + price + ", freetime=" + freetime + ", acceptState=" + acceptState + ", genre="
-				+ genre + ", telvisible=" + telvisible + ", telphone=" + telphone + ", courseState=" + courseState
-				+ ", persoalTrainer=" + persoalTrainer + ", expectedSalary=" + expectedSalary + ", qq=" + qq
-				+ ", balance=" + balance + ", lng=" + lng + ", lat=" + lat + ", flag=" + flag + "]";
-	}
-
-	
-	
-
     
- 
+    
 }

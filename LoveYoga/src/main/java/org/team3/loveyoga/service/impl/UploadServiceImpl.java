@@ -32,18 +32,20 @@ public class UploadServiceImpl implements UploadService{
 		Integer result = 0;
 		boolean re = false;
 		if (roleId == 0) {
-			re = uploadDao.uploadStudentImg(newFilePath, uid);
-			if (re) {
-				result = 1;
+				re = uploadDao.uploadStudentImg(newFilePath, uid);
+				if (re) {
+					result = 1;
+					return result;
+				}
 				return result;
-			}
-			return result;
+			
 		}else if (roleId == 1) {
 			re = uploadDao.uploadCoachImg(newFilePath, uid);
 			if (re) {
 				result = 1;
 				return result;
 			}
+			return result;
 		}
 		return result;
 	}

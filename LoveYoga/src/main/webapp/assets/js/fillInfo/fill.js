@@ -7,7 +7,7 @@ layui.use(['form', 'layedit', 'laydate','element'], function(){
   //监听提交
   form.on('submit(coachInfo)', function(data){
       $.ajax({
-          url:'/coachInfo/register',
+          url:'/fill/coach',
           type:'post',
           dataType:"json",
 		  contentType: 'application/json;charset=UTF-8',

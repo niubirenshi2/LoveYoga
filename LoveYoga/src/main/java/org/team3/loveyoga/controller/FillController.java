@@ -39,7 +39,7 @@ public class FillController {
 	@RequestMapping(value = "/coach")
 	@ResponseBody
 	public boolean  fillCoach(@RequestBody Coach coach,HttpServletRequest request) {		
-//		System.out.println("开始提交教练信息！"+coach);
+		System.out.println("开始提交教练信息！"+coach);
 		boolean result = false;
 		HttpSession session = request.getSession();
 		Object oUid = session.getAttribute("uid");
@@ -48,7 +48,7 @@ public class FillController {
 		}
 		Integer uid = (Integer) oUid;
 		coach.setUid(uid);
-		result = fillService.addInfo(coach);
+//		result = fillService.addInfo(coach);
 		return result;		
 	}
 	

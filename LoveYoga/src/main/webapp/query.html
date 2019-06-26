@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>爱上瑜伽--查看</title>
+
+
+    <link rel="stylesheet" href="assets/layui/css/layui.css" media="all">
+
+	
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">爱上瑜伽</div>
+        <!-- 头部区域（可配合layui已有的水平导航） -->
+        <ul class="layui-nav layui-layout-left">
+            <li class="layui-nav-item"><a href="">控制台</a></li>
+            <li class="layui-nav-item"><a href="">商品管理</a></li>
+            <li class="layui-nav-item"><a href="">用户</a></li>
+            <li class="layui-nav-item">
+                <a href="javascript:;">其它系统</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">邮件管理</a></dd>
+                    <dd><a href="">消息管理</a></dd>
+                    <dd><a href="">授权管理</a></dd>
+                </dl>
+            </li>
+        </ul>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item">
+                <a href="javascript:;">
+                    <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+                   [[${session.account}]]
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="">我的关注</a></dd>
+                    <dd><a href="">我的通知</a></dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="../logout">注销</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+            	<li class="layui-nav-item"><a href="../html/MyOrder.html" target="option">我的订单</a></li>
+            	<li class="layui-nav-item"><a href="../html/MyWallet.html" target="option">我的钱包</a></li>
+            	 <shiro:hasAnyRoles name="coach,gym">
+                <li class="layui-nav-item"><a href="../html/studentInfo.html" target="option" >学员查看</a></li>
+                </shiro:hasAnyRoles>
+                <shiro:hasAnyRoles name="student,gym">
+                <li class="layui-nav-item"><a href="../html/coachInfo.html" target="option">教练查看</a></li>
+                </shiro:hasAnyRoles>
+                <shiro:hasAnyRoles name="coach,student">
+                <li class="layui-nav-item"><a href="../html/gymInfo.html" target="option">场馆查看</a></li>
+                </shiro:hasAnyRoles>
+                <li class="layui-nav-item"><a href="../html/fill.html" target="option">信息完善</a></li>
+                <li class="layui-nav-item"><a href="../html/map.html" target="option">地图位置显示</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;height:100%">
+
+        </div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        ©honstat.com
+    </div>
+</div>
+<script src="assets/layui/layui.js" charset="utf-8"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+
+    });
+</script>
+</body>
+</html>

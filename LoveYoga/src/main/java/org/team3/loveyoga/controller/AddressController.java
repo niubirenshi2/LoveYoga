@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.team3.loveyoga.pojo.Coach;
 import org.team3.loveyoga.service.AddressService;
 
 @Controller
@@ -33,10 +32,7 @@ public class AddressController {
 	public boolean getAddress(Double pointX,Double pointY,HttpServletRequest request) {
 		System.out.println("存储的坐标："+pointX+";"+pointY);
 		//设置经纬度
-		Coach coach = new Coach();
-		coach.setLng(pointX);
-		coach.setLat(pointY);
-		System.out.println("设置经纬度："+coach);
+		System.out.println("设置经纬度：");
 		boolean result = false;
 		//获取用户信息
 		HttpSession session = request.getSession();
@@ -47,9 +43,7 @@ public class AddressController {
 		}
 		Integer uid = (Integer) oUid;
 		System.out.println(uid);
-		coach.setUid(uid);
-		System.out.println(coach);
-		result = addressService.setAddress(coach);
+		result = addressService.setAddress(uid,pointX,pointY);
         return result;
     }
 }

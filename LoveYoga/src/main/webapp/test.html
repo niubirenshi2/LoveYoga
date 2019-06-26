@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>信息完善</title>
+<link rel="stylesheet" href="/assets/layui/css/layui.css">
+</head>
+<body style="background-color: #F2F2F2;">
+	<div class="layui-layout layui-layout-admin">
+		<div class="layui-header">
+			<div class="layui-logo">爱上瑜伽</div>
+			<!-- 头部区域（可配合layui已有的水平导航） -->
+			<ul class="layui-nav layui-layout-left">
+				<li class="layui-nav-item"><a href="">控制台</a></li>
+				<li class="layui-nav-item"><a href="">商品管理</a></li>
+				<li class="layui-nav-item"><a href="">用户</a></li>
+				<li class="layui-nav-item"><a href="javascript:;">其它系统</a>
+					<dl class="layui-nav-child">
+						<dd>
+							<a href="">邮件管理</a>
+						</dd>
+						<dd>
+							<a href="">消息管理</a>
+						</dd>
+						<dd>
+							<a href="">授权管理</a>
+						</dd>
+					</dl></li>
+			</ul>
+			<ul class="layui-nav layui-layout-right">
+				<li class="layui-nav-item"><a href="javascript:;"> <img
+						src="http://t.cn/RCzsdCq" class="layui-nav-img">
+						[[${session.account}]]
+				</a>
+					<dl class="layui-nav-child">
+						<dd>
+							<a href="">我的关注</a>
+						</dd>
+						<dd>
+							<a href="">我的通知</a>
+						</dd>
+					</dl></li>
+				<li class="layui-nav-item"><a href="../logout">注销</a></li>
+			</ul>
+		</div>
+		<div style="padding: 40px;" class="layui-container">
+			<div class="layui-row layui-col-space15">
+				<div class="layui-col-md2">
+
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item"><a href="../html/MyOrder.html"
+							target="option">我的订单</a></li>
+						<li class="layui-nav-item"><a href="../html/MyWallet.html"
+							target="option">我的钱包</a></li>
+						<shiro:hasAnyRoles name="coach,gym">
+							<li class="layui-nav-item"><a
+								href="../html/studentInfo.html" target="option">学员查看</a></li>
+						</shiro:hasAnyRoles>
+						<shiro:hasAnyRoles name="student,gym">
+							<li class="layui-nav-item"><a href="../html/coachInfo.html"
+								target="option">教练查看</a></li>
+						</shiro:hasAnyRoles>
+						<shiro:hasAnyRoles name="coach,student">
+							<li class="layui-nav-item"><a href="../html/gymInfo.html"
+								target="option">场馆查看</a></li>
+						</shiro:hasAnyRoles>
+						<li class="layui-nav-item"><a href="../html/fill.html"
+							target="option">信息完善</a></li>
+						<li class="layui-nav-item"><a href="../html/map.html"
+							target="option">地图位置显示</a></li>
+						<li class="layui-nav-item"><a href="../test.html"
+							target="option">测试</a></li>
+					</ul>
+				</div>
+				<div class="layui-col-md8 layui-col-md-offset1">
+					<div class="layui-card">
+						<div class="layui-card-header">信息完善</div>
+						<div class="layui-card-body">
+							主体位置
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+				© loveyoga.com - 爱上瑜伽
+			</div>
+		</div>
+	</div>
+	<script src="/assets/layui/layui.js"></script>
+	<script type="text/javascript" src="/assets/js/fillInfo/fill.js"></script>
+	<script type="text/javascript" src="/assets/js/fillInfo/upload.js"></script>
+</body>
+</html>

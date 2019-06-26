@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport"
@@ -32,24 +34,19 @@
 					</dl></li>
 			</ul>
 			<ul class="layui-nav layui-layout-right">
-				<li class="layui-nav-item">
-					<p th:object="${session.user}">
-					<p>
-						<span th:text="*{headImg}"></span>.
-					</p>
-					<p>
-						<span th:text="*{account}"></span>.
-					</p>
+				<li class="layui-nav-item"><a href="javascript:;"> <img
+						src="http://t.cn/RCzsdCq" class="layui-nav-img">
+						[[${session.account}]]
+				</a>
 					<dl class="layui-nav-child">
 						<dd>
-							<a href="">基本资料</a>
+							<a href="">我的关注</a>
 						</dd>
 						<dd>
-							<a href="">安全设置</a>
+							<a href="">我的通知</a>
 						</dd>
-					</dl>
-				</li>
-				<li class="layui-nav-item"><a href="">退了</a></li>
+					</dl></li>
+				<li class="layui-nav-item"><a href="../logout">注销</a></li>
 			</ul>
 		</div>
 		<div style="padding: 40px;" class="layui-container">
@@ -57,31 +54,30 @@
 				<div class="layui-col-md2">
 
 					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+
 					<ul class="layui-nav layui-nav-tree" lay-filter="test">
-						<li class="layui-nav-item layui-nav-itemed"><a class=""
-							href="javascript:;">我的信息</a>
-							<dl class="layui-nav-child">
-								<dd>
-									<a href="javascript:;">我的订单</a>
-								</dd>
-								<dd>
-									<a href="javascript:;">我的好友</a>
-								</dd>
-								<dd>
-									<a href="javascript:;">我的钱包</a>
-								</dd>
-								<dd>
-									<a href="javascript:;">信息完善</a>
-								</dd>
-								<dd>
-									<a href="javascript:;">密码找回</a>
-								</dd>
-								<dd>
-									<a href="">超链接</a>
-								</dd>
-							</dl></li>
-						<li class="layui-nav-item"><a href="">场馆信息</a></li>
-						<li class="layui-nav-item"><a href="">主页图文</a></li>
+						<li class="layui-nav-item"><a href="../html/MyOrder.html"
+							target="option">我的订单</a></li>
+						<li class="layui-nav-item"><a href="../html/MyWallet.html"
+							target="option">我的钱包</a></li>
+						<shiro:hasAnyRoles name="coach,gym">
+							<li class="layui-nav-item"><a
+								href="../html/studentInfo.html" target="option">学员查看</a></li>
+						</shiro:hasAnyRoles>
+						<shiro:hasAnyRoles name="student,gym">
+							<li class="layui-nav-item"><a href="../html/coachInfo.html"
+								target="option">教练查看</a></li>
+						</shiro:hasAnyRoles>
+						<shiro:hasAnyRoles name="coach,student">
+							<li class="layui-nav-item"><a href="../html/gymInfo.html"
+								target="option">场馆查看</a></li>
+						</shiro:hasAnyRoles>
+						<li class="layui-nav-item"><a href="/html/fill.html"
+							target="option">信息完善</a></li>
+						<li class="layui-nav-item"><a href="../html/map.html"
+							target="option">地图位置显示</a></li>
+						<li class="layui-nav-item"><a href="/test.html"
+							target="option">测试</a></li>
 					</ul>
 				</div>
 				<div class="layui-col-md8 layui-col-md-offset1">
@@ -105,9 +101,9 @@
 									<div class="layui-form-item" style="padding-top: 5px;">
 										<label class="layui-form-label">权限设置：</label>
 										<div class="layui-input-block">
-											<input type="radio" name="authority" value="0" title="私密">
-											<input type="radio" name="authority" value="1" title="好友可见">
-											<input type="radio" name="authority" value="2" title="全部可见"
+											<input type="radio" name="authority" value="私密" title="私密">
+											<input type="radio" name="authority" value="好友可见" title="好友可见">
+											<input type="radio" name="authority" value="全部可见" title="全部可见"
 												checked>
 										</div>
 									</div>
@@ -122,9 +118,9 @@
 									<div class="layui-form-item">
 										<label class="layui-form-label">空闲时间：</label>
 										<div class="layui-input-block">
-											<input type="radio" name="freetime" value="0 " title="上午有空">
-											<input type="radio" name="freetime" value="1" title="下午有空">
-											<input type="radio" name="freetime" value="2" title="全天有空"
+											<input type="radio" name="freetime" value="上午有空 " title="上午有空">
+											<input type="radio" name="freetime" value="下午有空" title="下午有空">
+											<input type="radio" name="freetime" value="全天有空" title="全天有空"
 												checked>
 										</div>
 									</div>
@@ -132,8 +128,8 @@
 									<div class="layui-form-item">
 										<label class="layui-form-label">是否接课：</label>
 										<div class="layui-input-block">
-											<input type="radio" name="acceptState" value="0 " title="接课">
-											<input type="radio" name="acceptState" value="1" title="不接课"
+											<input type="radio" name="acceptState" value="接课" title="接课">
+											<input type="radio" name="acceptState" value="不接课" title="不接课"
 												checked>
 										</div>
 									</div>
@@ -148,9 +144,9 @@
 									<div class="layui-form-item">
 										<label class="layui-form-label">电话权限：</label>
 										<div class="layui-input-block">
-											<input type="radio" name="telvisible" value="0" title="全部可见">
-											<input type="radio" name="telvisible" value="1" title="好友可见">
-											<input type="radio" name="telvisible" value="2"
+											<input type="radio" name="telvisible" value="全部可见" title="全部可见">
+											<input type="radio" name="telvisible" value="好友可见" title="好友可见">
+											<input type="radio" name="telvisible" value="场馆和预约的人可见"
 												title="场馆和预约的人可见" checked>
 										</div>
 									</div>
@@ -165,9 +161,9 @@
 									<div class="layui-form-item">
 										<label class="layui-form-label" style="width: 160px">是否接受私教课程：</label>
 										<div class="layui-input-block">
-											<input type="radio" name="persoalTrainer" value="0"
+											<input type="radio" name="persoalTrainer" value="接受"
 												title="接受"> <input type="radio"
-												name="persoalTrainer" value="1" title="不接受" checked>
+												name="persoalTrainer" value="不接受" title="不接受" checked>
 										</div>
 									</div>
 									<div class="layui-form-item">
