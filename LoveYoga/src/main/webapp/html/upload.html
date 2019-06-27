@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>信息完善</title>
+<link rel="stylesheet" href="/assets/layui/css/layui.css">
+</head>
+<body style="background-color: #F2F2F2;">
+	<div class="layui-layout layui-layout-admin">
+		<div class="layui-header">
+			<div class="layui-logo">爱上瑜伽</div>
+			<!-- 头部区域（可配合layui已有的水平导航） -->
+			<ul class="layui-nav layui-layout-left">
+				<li class="layui-nav-item"><a href="">控制台</a></li>
+				<li class="layui-nav-item"><a href="">商品管理</a></li>
+				<li class="layui-nav-item"><a href="">用户</a></li>
+				<li class="layui-nav-item"><a href="javascript:;">其它系统</a>
+					<dl class="layui-nav-child">
+						<dd>
+							<a href="">邮件管理</a>
+						</dd>
+						<dd>
+							<a href="">消息管理</a>
+						</dd>
+						<dd>
+							<a href="">授权管理</a>
+						</dd>
+					</dl></li>
+			</ul>
+			<ul class="layui-nav layui-layout-right">
+				<li class="layui-nav-item"><a href="javascript:;"> <img
+						src="http://t.cn/RCzsdCq" class="layui-nav-img"> 贤心
+				</a>
+					<dl class="layui-nav-child">
+						<dd>
+							<a href="">基本资料</a>
+						</dd>
+						<dd>
+							<a href="">安全设置</a>
+						</dd>
+					</dl></li>
+				<li class="layui-nav-item"><a href="">退了</a></li>
+			</ul>
+		</div>
+		<div style="padding: 40px;" class="layui-container">
+			<div class="layui-row layui-col-space15">
+				<div class="layui-col-md2">
+
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item layui-nav-itemed"><a class=""
+							href="javascript:;">我的信息</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;">我的订单</a>
+								</dd>
+								<dd>
+									<a href="javascript:;">我的好友</a>
+								</dd>
+								<dd>
+									<a href="javascript:;">我的钱包</a>
+								</dd>
+								<dd>
+									<a href="javascript:;">信息完善</a>
+								</dd>
+								<dd>
+									<a href="javascript:;">密码找回</a>
+								</dd>
+								<dd>
+									<a href="">超链接</a>
+								</dd>
+							</dl></li>
+						<li class="layui-nav-item"><a href="">场馆信息</a></li>
+						<li class="layui-nav-item"><a href="">主页图文</a></li>
+					</ul>
+				</div>
+				<div class="layui-col-md8 layui-col-md-offset1">
+					<div class="layui-card">
+						<div class="layui-card-header">信息完善</div>
+						<div class="layui-card-body">
+							<div class="layui-tab layui-tab-brief"
+								lay-filter="docDemoTabBrief">
+								<ul class="layui-tab-title">
+									<li class="layui-this"><a href="coachFill.html">基本信息填写</a></li>
+									<li><a href="upload.html">上传头像</a></li>
+									<li><a href="">密码修改</a></li>
+								</ul>
+							</div>
+							<div class="layui-form-item">
+								<div class="layui-upload">
+									<button type="button" class="layui-btn" id="headImg">选择图片</button>
+									<div class="layui-upload-list">
+										<img class="layui-upload-img" id="img"
+											style="width: 130px; height: 150px;">
+										<p id="message"></p>
+									</div>
+									<button type="button" class="layui-btn" id="upload">上传头像</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+				© loveyoga.com - 爱上瑜伽
+			</div>
+		</div>
+	</div>
+	<script src="/assets/layui/layui.js"></script>
+	<script type="text/javascript" src="/assets/js/fillInfo/upload.js"></script>
+</body>
+</html>

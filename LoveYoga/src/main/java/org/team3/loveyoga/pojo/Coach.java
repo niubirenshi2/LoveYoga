@@ -1,66 +1,189 @@
 package org.team3.loveyoga.pojo;
 
+import java.math.BigDecimal;
+
 public class Coach {
-    private Integer yu_id;
+    private Integer id;
 
-	private String yu_tel;
+    private Integer uid;
 
-	private String yu_password;
+    private String authority;
 
-	private String yu_name;
+    private String headImg;
 
-	private String yu_email;
+    private String nickName;
 
-	private Integer yu_rid;
 
-	private Integer flag;
+    private BigDecimal price;
 
-	public Integer getYu_id() {
-		return yu_id;
+    private String freetime;
+
+    private String acceptState;
+
+    private String genre;
+
+    private String telvisible;
+
+    private String telphone;
+
+    private String courseState;
+
+    private String persoalTrainer;
+
+    private BigDecimal expectedSalary;
+
+    private String qq;
+
+    private BigDecimal balance;
+    
+    private double lng;
+    
+    private double lat;
+
+    private Integer flag;
+
+	public Integer getId() {
+		return id;
 	}
 
-	public void setYu_id(Integer yu_id) {
-		this.yu_id = yu_id;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
-	public String getYu_tel() {
-		return yu_tel;
+	public Integer getUid() {
+		return uid;
 	}
 
-	public void setYu_tel(String yu_tel) {
-		this.yu_tel = yu_tel;
+	public void setUid(Integer uid) {
+		this.uid = uid;
 	}
 
-	public String getYu_password() {
-		return yu_password;
+	public String getAuthority() {
+		return authority;
 	}
 
-	public void setYu_password(String yu_password) {
-		this.yu_password = yu_password;
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 
-	public String getYu_name() {
-		return yu_name;
+	public String getHeadImg() {
+		return headImg;
 	}
 
-	public void setYu_name(String yu_name) {
-		this.yu_name = yu_name;
+	public void setHeadImg(String headImg) {
+		this.headImg = headImg;
 	}
 
-	public String getYu_email() {
-		return yu_email;
+	public String getNickName() {
+		return nickName;
 	}
 
-	public void setYu_email(String yu_email) {
-		this.yu_email = yu_email;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 
-	public Integer getYu_rid() {
-		return yu_rid;
+	public BigDecimal getPrice() {
+		return price;
 	}
 
-	public void setYu_rid(Integer yu_rid) {
-		this.yu_rid = yu_rid;
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public String getFreetime() {
+		return freetime;
+	}
+
+	public void setFreetime(String freetime) {
+		this.freetime = freetime;
+	}
+
+	public String getAcceptState() {
+		return acceptState;
+	}
+
+	public void setAcceptState(String acceptState) {
+		this.acceptState = acceptState;
+	}
+
+	public String getGenre() {
+		return genre;
+	}
+
+	public void setGenre(String genre) {
+		this.genre = genre;
+	}
+
+	public String getTelvisible() {
+		return telvisible;
+	}
+
+	public void setTelvisible(String telvisible) {
+		this.telvisible = telvisible;
+	}
+
+	public String getTelphone() {
+		return telphone;
+	}
+
+	public void setTelphone(String telphone) {
+		this.telphone = telphone;
+	}
+
+	public String getCourseState() {
+		return courseState;
+	}
+
+	public void setCourseState(String courseState) {
+		this.courseState = courseState;
+	}
+
+	public String getPersoalTrainer() {
+		return persoalTrainer;
+	}
+
+	public void setPersoalTrainer(String persoalTrainer) {
+		this.persoalTrainer = persoalTrainer;
+	}
+
+	public BigDecimal getExpectedSalary() {
+		return expectedSalary;
+	}
+
+	public void setExpectedSalary(BigDecimal expectedSalary) {
+		this.expectedSalary = expectedSalary;
+	}
+
+	public String getQq() {
+		return qq;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+
+	public BigDecimal getBalance() {
+		return balance;
+	}
+
+	public void setBalance(BigDecimal balance) {
+		this.balance = balance;
+	}
+
+	public double getLng() {
+		return lng;
+	}
+
+	public void setLng(double lng) {
+		this.lng = lng;
+	}
+
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
+		this.lat = lat;
 	}
 
 	public Integer getFlag() {
@@ -73,12 +196,11 @@ public class Coach {
 
 	@Override
 	public String toString() {
-		return "Coach [yu_id=" + yu_id + ", yu_tel=" + yu_tel + ", yu_password=" + yu_password + ", yu_name=" + yu_name
-				+ ", yu_email=" + yu_email + ", yu_rid=" + yu_rid + ", flag=" + flag + "]";
+		return "Coach [id=" + id + ", uid=" + uid + ", authority=" + authority + ", headImg=" + headImg + ", nickName="
+				+ nickName + ", price=" + price + ", freetime=" + freetime + ", acceptState=" + acceptState + ", genre="
+				+ genre + ", telvisible=" + telvisible + ", telphone=" + telphone + ", courseState=" + courseState
+				+ ", persoalTrainer=" + persoalTrainer + ", expectedSalary=" + expectedSalary + ", qq=" + qq
+				+ ", balance=" + balance + ", lng=" + lng + ", lat=" + lat + ", flag=" + flag + "]";
 	}
-
-	
-
-	
 
 }

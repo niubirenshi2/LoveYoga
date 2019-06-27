@@ -1,40 +1,39 @@
 package org.team3.loveyoga.pojo;
 
 public class HeadImg {
-    private Integer yh_headimgid;
+    private Integer headImgId;
 
-	private String yh_headimg;
+    private String headImg;
 
-	private Integer yh_flag;
+    private Long flag;
 
-	public Integer getYh_headimgid() {
-		return yh_headimgid;
+	public Integer getHeadImgId() {
+		return headImgId;
 	}
 
-	public void setYh_headimgid(Integer yh_headimgid) {
-		this.yh_headimgid = yh_headimgid;
+	public void setHeadImgId(Integer headImgId) {
+		this.headImgId = headImgId;
 	}
 
-	public String getYh_headimg() {
-		return yh_headimg;
+	public String getHeadImg() {
+		return headImg;
 	}
 
-	public void setYh_headimg(String yh_headimg) {
-		this.yh_headimg = yh_headimg;
+	public void setHeadImg(String headImg) {
+		this.headImg = headImg;
 	}
 
-	public Integer getYh_flag() {
-		return yh_flag;
+	public Long getFlag() {
+		return flag;
 	}
 
-	public void setYh_flag(Integer yh_flag) {
-		this.yh_flag = yh_flag;
+	public void setFlag(Long flag) {
+		this.flag = flag;
 	}
 
 	@Override
 	public String toString() {
-		return "HeadImg [yh_headimgid=" + yh_headimgid + ", yh_headimg=" + yh_headimg + ", yh_flag=" + yh_flag + "]";
+		return "HeadImg [headImgId=" + headImgId + ", headImg=" + headImg + ", flag=" + flag + "]";
 	}
 
-	
 }

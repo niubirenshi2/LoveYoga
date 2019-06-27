@@ -1,6 +1,8 @@
 spring:
   thymeleaf:
     cache: false
+    mode: LEGACYHTML5
+
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/loveyoga?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
@@ -35,10 +37,14 @@ spring:
     filters: stat,wall,log4j                
 
     #通过connectProperties属性来打开mergeSql功能;慢SQL记录
-    connectionProperties: 'druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000'  
-    
+    connectionProperties: 'druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000'
+  servlet:
+    multipart:
+      enabled: true
+
+
 mybatis: 
   config-location: classpath:mybatis/mybatis-config.xml
-  type-aliases-package: com.woniuxy.yoga_app.pojo
+  type-aliases-package: org.team3.loveyoga.pojo
 server:
   port: 80

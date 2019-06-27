@@ -1,44 +1,34 @@
 package org.team3.loveyoga.pojo;
 
 public class Nickname {
-    private Integer yn_nicknameid;
 
-	private String yn_nickname;
+    private Integer nickNameId;
 
-	private Integer yn_flag;
+    private String nickname;
 
-	public Integer getYn_nicknameid() {
-		return yn_nicknameid;
-	}
+    private Integer flag;
 
-	public void setYn_nicknameid(Integer yn_nicknameid) {
-		this.yn_nicknameid = yn_nicknameid;
-	}
+    public Integer getNicknameid() {
+        return nickNameId;
+    }
 
-	public String getYn_nickname() {
-		return yn_nickname;
-	}
+    public void setNicknameid(Integer nicknameid) {
+        this.nickNameId = nicknameid;
+    }
 
-	public void setYn_nickname(String yn_nickname) {
-		this.yn_nickname = yn_nickname;
-	}
+    public String getNickname() {
+        return nickname;
+    }
 
-	public Integer getYn_flag() {
-		return yn_flag;
-	}
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
 
-	public void setYn_flag(Integer yn_flag) {
-		this.yn_flag = yn_flag;
-	}
+    public Integer getFlag() {
+        return flag;
+    }
 
-	@Override
-	public String toString() {
-		return "Nickname [yn_nicknameid=" + yn_nicknameid + ", yn_nickname=" + yn_nickname + ", yn_flag=" + yn_flag
-				+ "]";
-	}
-
-	
-
-	
-
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
 }

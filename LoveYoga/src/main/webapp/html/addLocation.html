@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+<style type="text/css">
+body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;}
+</style>
+<script src="/assets/layui/layui.all.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GpRkY37T3BAiPRe2sToC1HMfNrs8K7vf"></script>
+<title>添加教练标注点</title>
+</head>
+<body>
+<div id="allmap"></div>
+</body>
+<script type="text/javascript">
+// 百度地图API功能
+var map = new BMap.Map("allmap");
+
+map.centerAndZoom(new BMap.Point(104.064851, 30.579213), 15);
+map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_SATELLITE_MAP,BMAP_HYBRID_MAP ]}));   //添加地图类型控件
+
+//删除标注点
+var removeMarker = function(e,ee,marker){
+map.removeOverlay(marker);
+}
+//左键单击地图响应事件
+map.addEventListener("click", function(n){
+        //1.点击动态生成标注点
+        var point=new BMap.Point(n.point.lng,n.point.lat);
+        var marker =new BMap.Marker(point);
+        map.addOverlay(marker);
+        //2.为标注点生成右击菜单
+        //创建菜单
+        var markerMenu =new BMap.ContextMenu();
+        markerMenu.addItem(new BMap.MenuItem('删除',removeMarker.bind(marker)));
+        marker.addContextMenu(markerMenu);
+        
+        //3.调用后端接口存储该标注信息
+        $("#allmap").click(function(){
+        	
+            $.ajax({
+                type:"post",
+                url:"/add/getAddress",
+                async:true,
+                dataType:"text",
+                data:{"pointX":n.point.lng,"pointY":n.point.lat},
+                success:function(result){
+                	if (result == true) {
+						alert("添加成功！")
+					} else {
+						confirm("添加失败")
+					}
+                },
+                error:function(){
+                	alert("fail");
+                }
+            })
+        })
+});
+
+</script>
+</html>
