@@ -36,7 +36,39 @@ $(document).ready(function() {
 			+'<div class="layui-form-item">'
 			+'	<label class="layui-form-label">qq号码：'+data.qq+'</label>'
 			+'</div>'
+			+'<div class="layui-form-item">'
+			+'<div class="layui-input-block">'
+			+'	<button class="layui-btn" lay-submit lay-filter="coachInfo">修改信息</button>'
+			+'</div>'
+			+'</div>'
+			
 			("#info").append(content);
 		}
 	});
+	
+	layui.use(['layer','element'], function(){
+		  var form = layui.form
+		  ,layer = layui.layer
+		  ,$ = layui.jquery
+		  ,element = layui.element;
+		  
+		  $(document).on('click','#userInfo',function(){
+			  var index = layer.open();
+	    	  layer.open({
+	    		  title:"修改个人信息",
+	    		  type: 2, 
+	    		  area:['450px','400px'],
+	    		  skin:"layui-layer-molv",
+	    		  maxmin:true,
+	    		  content: '/html/fill.html' 
+	    		});
+		  });
+		  
+	});
+	
+	
 });
+
+
+
+

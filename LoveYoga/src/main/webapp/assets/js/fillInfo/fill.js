@@ -1,4 +1,4 @@
-layui.use(['form', 'layedit', 'laydate','element'], function(){
+layui.use(['form', 'layer','element'], function(){
   var form = layui.form
   ,layer = layui.layer
   ,$ = layui.jquery
@@ -16,7 +16,7 @@ layui.use(['form', 'layedit', 'laydate','element'], function(){
           	console.info(result);
               if (result) {
                   layer.alert('信息提交成功');
-                  location.href = "/index.html";
+                  location.href = "/html/userInfo.html";
               }else {
                   layer.alert('信息提交失败！请稍候重新提交！');
               }
