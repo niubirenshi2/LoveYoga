@@ -1,7 +1,6 @@
 package org.team3.loveyoga.pojo;
 
 public class Nickname {
-
     private Integer nickNameId;
 
     private String nickname;

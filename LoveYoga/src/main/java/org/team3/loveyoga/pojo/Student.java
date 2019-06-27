@@ -131,5 +131,4 @@ public class Student {
 				+ ", state=" + state + ", userID=" + userID + ", flag=" + flag + ", note=" + note + "]";
 	}
 
- 
-}
+ }
