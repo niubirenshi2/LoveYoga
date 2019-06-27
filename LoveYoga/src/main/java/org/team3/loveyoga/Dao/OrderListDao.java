@@ -12,18 +12,18 @@ public interface OrderListDao {
 	public void sendSignRequestToCoach(OrderList orderList);
 	
 	//查询签约记录(学员对教练的签约申请，以便重复申请或者避免对处于签约状态的教练重复申请)
-	@Select("select * from orderlist where studentID=#{studentID} and coachID=#{coachID} and state=0 and flag=0")
+	@Select("select * from orderlist where studentID=#{studentID} and coachID=#{coachID} and state=3 and flag=0")
 	public OrderList findSignRequestBySidAndCid(OrderList orderList);
 	
 	//重复向教练发起签约申请
-	@Update("update orderlist set requestTime=#{requestTime} where studentID=#{studentID} and coachID=#{coachID} and state=0 and flag=0")
+	@Update("update orderlist set requestTime=#{requestTime} where studentID=#{studentID} and coachID=#{coachID} and state=3 and flag=0")
 	public void reSendSignRequestToCoach(OrderList orderList);
 	
 	//教练同意签约申请
-	@Update("update orderlist set createTime=#{createTime},orderNumber=#{orderNumber} where studentID=#{studentID} and coachID=#{coachID} and state=0 and flag=0")
+	@Update("update orderlist set createTime=#{createTime},orderNumber=#{orderNumber} where studentID=#{studentID} and coachID=#{coachID} and state=3 and flag=0")
 	public void coachAcceptSign(OrderList orderList);
 	
 	//教练拒绝签约申请
-	@Update("update orderlist set flag=1 where studentID=#{studentID} and coachID=#{coachID} and state=0 and flag=0")
+	@Update("update orderlist set flag=1 where studentID=#{studentID} and coachID=#{coachID} and state=3 and flag=0")
 	public void coachRefuseSign(OrderList orderList);
 }

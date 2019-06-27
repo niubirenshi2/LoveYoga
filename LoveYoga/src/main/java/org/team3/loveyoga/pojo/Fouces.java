@@ -14,8 +14,18 @@ public class Fouces {
     private Date deletetime;
 
     private Integer flag;
+    
+    private Integer state;
 
-    public Integer getId() {
+    public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
+	}
+
+	public Integer getId() {
         return id;
     }
 

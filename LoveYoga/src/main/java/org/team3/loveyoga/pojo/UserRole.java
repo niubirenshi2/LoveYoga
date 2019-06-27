@@ -8,8 +8,40 @@ public class UserRole {
     private Integer roleid;
 
     private Integer flag;
+    
+    //将该表与三张表连接起来
+    private Coach coach;
+    private Student student;
+    private Gym gym;
+    
+    public Coach getCoach() {
+		return coach;
+	}
 
-    public Integer getId() {
+	public void setCoach(Coach coach) {
+		this.coach = coach;
+	}
+
+	public Student getStudent() {
+		return student;
+	}
+
+	public void setStudent(Student student) {
+		this.student = student;
+	}
+
+	public Gym getGym() {
+		return gym;
+	}
+
+	public void setGym(Gym gym) {
+		this.gym = gym;
+	}
+
+	
+	
+	
+	public Integer getId() {
         return id;
     }
 

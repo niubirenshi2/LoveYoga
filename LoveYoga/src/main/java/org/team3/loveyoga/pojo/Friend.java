@@ -18,25 +18,28 @@ public class Friend {
     private Date delecteTime;
 
     private Integer flag;
+    
+    //邀请人姓名
+    private User name;
+    
+    
+	public User getName() {
+		return name;
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public void setName(User name) {
+		this.name = name;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
-    }
-
-    public Integer getUserID() {
+	public Integer getUserID() {
 		return userID;
 	}
 
@@ -50,6 +53,14 @@ public class Friend {
 
 	public void setFriendID(Integer friendID) {
 		this.friendID = friendID;
+	}
+
+	public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
 	}
 
 	public Integer getGroupState() {
@@ -77,10 +88,12 @@ public class Friend {
 	}
 
 	public Integer getFlag() {
-        return flag;
-    }
+		return flag;
+	}
 
-    public void setFlag(Integer flag) {
-        this.flag = flag;
-    }
+	public void setFlag(Integer flag) {
+		this.flag = flag;
+	}
+
+	
 }

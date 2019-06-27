@@ -112,31 +112,7 @@ public class Coach {
         this.telphone = telphone;
     }
 
-    public String getQq() {
-        return qq;
-    }
-
-    public void setQq(String qq) {
-        this.qq = qq;
-    }
-
-    public BigDecimal getBalance() {
-        return balance;
-    }
-
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
-    }
-
-    public Integer getFlag() {
-        return flag;
-    }
-
-    public void setFlag(Integer flag) {
-        this.flag = flag;
-    }
-
-	public String getHeadImg() {
+    public String getHeadImg() {
 		return headImg;
 	}
 
@@ -183,5 +159,28 @@ public class Coach {
 	public void setExpectedSalary(BigDecimal expectedSalary) {
 		this.expectedSalary = expectedSalary;
 	}
-    
+
+	public String getQq() {
+        return qq;
+    }
+
+    public void setQq(String qq) {
+        this.qq = qq;
+    }
+
+    public BigDecimal getBalance() {
+        return balance;
+    }
+
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
 }

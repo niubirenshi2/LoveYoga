@@ -78,7 +78,7 @@ public class CoachSignController {
 		signGym.setGymID(gymID);
 		//判断是存在签约申请（flag=0）
 		if(signGymService.findRequest(signGym)!=null){
-			map.put("message", "您已经向场馆发送了申请，请耐心等待");
+			map.put("message", "您已经向教练发送了申请或者该教练已经向您发起申请，请耐心等待或查看消息");
 			return map;
 		}
 		//判断是否签约（flag=1）
